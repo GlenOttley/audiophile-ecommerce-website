@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import productData from '../data/productData.json'
+import productData from '../data/productData'
 import Product from '../models/productModel'
 import connectDB from './db'
 
