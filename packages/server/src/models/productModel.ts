@@ -47,10 +47,6 @@ const productSchema = new Schema({
     type: imageSchema,
     _id: false,
   },
-  new: {
-    type: Boolean,
-    required: true,
-  },
   includes: {
     type: [itemSchema],
     _id: false,
