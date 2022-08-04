@@ -17,6 +17,6 @@
     "start": "node packages/server/dist/server.js",
     "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc -p ./packages/server/tsconfig.json",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn run build && yarn install --prefix packages/client && yarn run build --prefix packages/client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn run build && yarn install --cwd packages/client && yarn run build --prefix packages/client"
   }
 }
