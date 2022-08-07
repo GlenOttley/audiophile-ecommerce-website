@@ -15,7 +15,7 @@ console.log(path.resolve())
 
 export const app = createServer()
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 666
 
 app.listen(PORT, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
