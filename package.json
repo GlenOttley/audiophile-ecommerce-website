@@ -14,7 +14,7 @@
     "test": "lerna run test",
     "new-version": "lerna version --conventional-commits --yes",
     "diff": "lerna diff",
-    "start": "node packages/server/dist/server.js",
+    "start": "node packages/server/dist/app.js",
     "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc -p ./packages/server/tsconfig.json",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn run build && yarn --cwd packages/client install && yarn --cwd packages/client run build"
