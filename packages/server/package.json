@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "nodemon src/app.ts",
     "test": "jest",
+    "test:debug": "jest --watchAll",
     "data:import": "ts-node src/utils/seeder.ts",
     "data:destroy": "ts-node src/utils/seeder.ts -d",
     "data:find": "ts-node src/utils/seeder.ts -f"
@@ -30,8 +31,10 @@
     "@types/supertest": "^2.0.12",
     "concurrently": "^7.3.0",
     "jest": "^28.1.3",
+    "mongodb-memory-server": "^8.8.0",
     "nodemon": "^2.0.19",
     "supertest": "^6.2.4",
+    "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1"
   }
 }

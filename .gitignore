@@ -1,6 +1,9 @@
 frontend-mentor
 node_modules
 .env
+.vscode
+Procfile
+
 
 # CREATE REACT APP
 
