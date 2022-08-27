@@ -29,8 +29,6 @@ function createServer() {
       res.json('API is running...')
     })
   }
-
-  console.log('App Created!')
   return app
 }
 

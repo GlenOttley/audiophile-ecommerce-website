@@ -3,15 +3,12 @@ import dotenv from 'dotenv'
 import path from 'path'
 import connectDB from './utils/db'
 
-// const serverRoot = path.resolve()
+const serverRoot = path.resolve()
 
 // dev
-dotenv.config({ path: path.join(path.resolve(), '../../.env') })
+dotenv.config({ path: path.join(serverRoot, '../../.env') })
 
-// build
-// dotenv.config({ path: path.resolve() + '/.env' })
-
-console.log(path.resolve())
+// console.log(path.resolve())
 
 export const app = createServer()
 

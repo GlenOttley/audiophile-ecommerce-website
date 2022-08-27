@@ -12,8 +12,7 @@ const getProducts = asyncHandler(
       const products: IProduct[] = await Product.find({})
       res.status(200).json(products)
     } catch (error) {
-      res.status(404)
-      throw new Error('Something went wrong, please try again')
+      res.status(404).json(error)
     }
   }
 )

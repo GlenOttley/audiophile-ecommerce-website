@@ -1,9 +1,13 @@
 import dotenv from 'dotenv'
-import productData from '../data/productData'
+import productData from '@audiophile/common/data/productData'
 import Product from '../models/productModel'
 import connectDB from './db'
+import path from 'path'
 
-dotenv.config()
+const serverRoot = path.resolve()
+
+// dev
+dotenv.config({ path: path.join(serverRoot, '../../.env') })
 
 connectDB()
 
