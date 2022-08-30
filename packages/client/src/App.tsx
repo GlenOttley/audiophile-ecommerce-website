@@ -6,7 +6,8 @@ import Footer from './components/Footer'
 import Home from './views/Home'
 
 const App = (): JSX.Element => {
-  console.log(theme.typography)
+  console.log(theme)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>

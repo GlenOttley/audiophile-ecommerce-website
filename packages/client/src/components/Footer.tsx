@@ -52,8 +52,8 @@ const Footer = (): JSX.Element => {
             <Link component={RouterLink} to='/'>
               Home
             </Link>
-            {productCategoryData.map((category) => (
-              <Link component={RouterLink} to={category.slug}>
+            {productCategoryData.map((category, index) => (
+              <Link component={RouterLink} to={category.slug} key={index}>
                 {category.name}
               </Link>
             ))}

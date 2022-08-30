@@ -1,4 +1,3 @@
-import theme from '../theme'
 import { Box, Grid } from '@mui/material'
 import CategoryCard from './CategoryCard'
 import Container from './Container'
@@ -11,15 +10,15 @@ interface ComponentProps {
 const ProductCategories = ({ style }: ComponentProps) => {
   return (
     <Box style={style} marginTop='90px'>
-      <Container paddingBottom>
+      <Container paddingBottom={true}>
         <Grid
           container
           direction={{ xs: 'column', md: 'row' }}
-          justifyContent={{ md: 'stretch' }}
-          gap={{ xs: 10.5, md: 1 }}
+          wrap='nowrap'
+          gap={{ xs: 10.5, md: 1, lg: 4 }}
         >
-          {productCategoryData.map((category) => (
-            <CategoryCard category={category} />
+          {productCategoryData.map((category, index) => (
+            <CategoryCard category={category} key={index} />
           ))}
         </Grid>
       </Container>

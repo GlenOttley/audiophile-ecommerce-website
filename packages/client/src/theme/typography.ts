@@ -18,6 +18,12 @@ export const typography = {
     lineHeight: '4rem',
     letterSpacing: '1.29px',
   },
+  h4: {
+    fontSize: '2.8rem',
+    fontWeight: 700,
+    lineHeight: 'auto',
+    letterSpacing: '2px',
+  },
   overline: {
     fontSize: '1.4rem',
     fontWeight: 400,

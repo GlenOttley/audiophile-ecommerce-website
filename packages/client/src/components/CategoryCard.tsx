@@ -1,5 +1,5 @@
 import theme from '../theme'
-import { Box, Typography, Grid } from '@mui/material'
+import { Typography, Grid } from '@mui/material'
 import { KeyboardArrowRight } from '@mui/icons-material'
 import { Link as RouterLink } from 'react-router-dom'
 import Button from './Button'
@@ -12,14 +12,16 @@ interface ComponentProps {
 
 const CategoryCard = ({ category }: ComponentProps): JSX.Element => {
   return (
-    <Box
+    <Grid
+      container
+      item
       bgcolor={theme.palette.grey[200]}
       borderRadius={theme.shape.borderRadius}
       height='165px'
-      width={{ xs: '100%', md: '32%' }}
     >
       <Grid
         container
+        item
         direction='column'
         alignItems='center'
         position='relative'
@@ -44,7 +46,7 @@ const CategoryCard = ({ category }: ComponentProps): JSX.Element => {
           Shop
         </Button>
       </Grid>
-    </Box>
+    </Grid>
   )
 }
 

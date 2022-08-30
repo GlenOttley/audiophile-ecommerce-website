@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { RootState } from '../../app/store'
 import { IProduct } from '@audiophile/common/interfaces'
