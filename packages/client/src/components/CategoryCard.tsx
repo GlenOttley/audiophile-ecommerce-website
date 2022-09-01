@@ -5,12 +5,22 @@ import { Link as RouterLink } from 'react-router-dom'
 import Button from './Button'
 import Image from 'mui-image'
 import { IProductCategory } from '../data/productCategoryData'
+import { SetStateAction } from 'react'
 
 interface ComponentProps {
   category: IProductCategory
+  setShowNav?: React.Dispatch<SetStateAction<boolean>>
 }
 
-const CategoryCard = ({ category }: ComponentProps): JSX.Element => {
+const CategoryCard = ({
+  category,
+  setShowNav,
+}: ComponentProps): JSX.Element => {
+  function handleLink() {
+    if (setShowNav) {
+      setShowNav(false)
+    }
+  }
   return (
     <Grid
       container
@@ -25,26 +35,34 @@ const CategoryCard = ({ category }: ComponentProps): JSX.Element => {
         direction='column'
         alignItems='center'
         position='relative'
-        sx={{ top: '-50px' }}
+        top={{ xs: '-50px', md: '-55px', lg: '-65px' }}
       >
-        <Grid item height='130px'>
+        <Grid item height={{ xs: '130px', md: '150px', lg: '170px' }}>
           <Image src={category.image} alt={category.name} />
         </Grid>
-        <Typography
-          variant='body2'
-          textTransform='uppercase'
-          color={theme.palette.common.black}
+        <Grid
+          item
+          textAlign='center'
+          position='relative'
+          top={{ md: '-10px', lg: '-20px' }}
         >
-          {category.name}
-        </Typography>
-        <Button
-          variant='text'
-          endIcon={<KeyboardArrowRight color='primary' />}
-          component={RouterLink}
-          to={category.slug}
-        >
-          Shop
-        </Button>
+          <Typography
+            variant='body2'
+            textTransform='uppercase'
+            color={theme.palette.common.black}
+          >
+            {category.name}
+          </Typography>
+          <Button
+            variant='text'
+            endIcon={<KeyboardArrowRight color='primary' />}
+            component={RouterLink}
+            to={category.slug}
+            onClick={handleLink}
+          >
+            Shop
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   )

@@ -6,9 +6,9 @@ import theme from '../theme'
 import Link from './Link'
 import { Link as RouterLink } from 'react-router-dom'
 import productCategoryData from '../data/productCategoryData'
-import ProductCategories from './ProductCategories'
 import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
+import MobileNav from './MobileNav'
 
 const Nav = (): JSX.Element => {
   const [showNav, setShowNav] = useState(false)
@@ -109,7 +109,7 @@ const Nav = (): JSX.Element => {
         anchor='top'
         PaperProps={{ style: { minHeight: '340px' } }}
       >
-        <ProductCategories style={{ marginTop: '180px' }} />
+        <MobileNav setShowNav={setShowNav} />
       </Drawer>
     </AppBar>
   )

@@ -4,9 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './views/Home'
+import Category from './views/Category'
+import { useAppDispatch } from './app/hooks'
+import { getProducts } from './features/product/productSlice'
+import ScrollToTop from './utils/scrollToTop'
 
 const App = (): JSX.Element => {
   console.log(theme)
+
+  const dispatch = useAppDispatch()
+  dispatch(getProducts())
 
   return (
     <ThemeProvider theme={theme}>
@@ -15,9 +22,23 @@ const App = (): JSX.Element => {
           <Nav />
 
           <Box marginTop='91px'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-            </Routes>
+            <ScrollToTop>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route
+                  path='/headphones'
+                  element={<Category category='headphones' />}
+                />
+                <Route
+                  path='/speakers'
+                  element={<Category category='speakers' />}
+                />
+                <Route
+                  path='/earphones'
+                  element={<Category category='earphones' />}
+                />
+              </Routes>
+            </ScrollToTop>
           </Box>
 
           <Footer />

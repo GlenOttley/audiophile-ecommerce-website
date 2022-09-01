@@ -18,6 +18,12 @@ export const typography = {
     lineHeight: '4rem',
     letterSpacing: '1.29px',
   },
+  h2: {
+    fontSize: '2.8rem',
+    fontWeight: 700,
+    lineHeight: '3.5rem',
+    letterSpacing: '1px',
+  },
   h4: {
     fontSize: '2.8rem',
     fontWeight: 700,
@@ -25,6 +31,7 @@ export const typography = {
     letterSpacing: '2px',
   },
   overline: {
+    display: 'block',
     fontSize: '1.4rem',
     fontWeight: 400,
     lineHeight: '1.9rem',

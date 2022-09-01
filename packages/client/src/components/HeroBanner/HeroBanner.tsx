@@ -43,13 +43,15 @@ const HeroBanner = (): JSX.Element => {
             alignItems={{ xs: 'center', lg: 'start' }}
             zIndex='1'
           >
-            <Typography
-              variant='overline'
-              display='inline-block'
-              marginBottom={3}
-            >
-              New Product
-            </Typography>
+            {product?.new && (
+              <Typography
+                variant='overline'
+                display='inline-block'
+                marginBottom={3}
+              >
+                New Product
+              </Typography>
+            )}
             <Typography
               variant='h1'
               color={theme.palette.common.white}
@@ -62,6 +64,9 @@ const HeroBanner = (): JSX.Element => {
               variant='body1'
               marginBottom={5}
               textAlign={{ xs: 'center', lg: 'start' }}
+              maxWidth={{
+                lg: '350px',
+              }}
             >
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.

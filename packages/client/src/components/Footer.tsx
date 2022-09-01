@@ -21,7 +21,20 @@ const Footer = (): JSX.Element => {
         }
       }
     >
-      <Container>
+      <Container
+        sx={{
+          '&::before': {
+            content: '""',
+            display: 'block',
+            position: 'relative',
+            top: { xs: '-52px', md: '-60px' },
+            margin: { xs: '0 auto', md: 0 },
+            height: '4px',
+            width: '101px',
+            backgroundColor: theme.palette.primary.main,
+          },
+        }}
+      >
         <Grid
           container
           direction={{ xs: 'column', lg: 'row' }}

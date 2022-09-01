@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import '@testing-library/react/dont-cleanup-after-each'
+// import '@testing-library/react/dont-cleanup-after-each'
 import { render } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 import type { PreloadedState } from '@reduxjs/toolkit'

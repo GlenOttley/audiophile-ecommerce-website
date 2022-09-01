@@ -1,23 +1,36 @@
 import { renderWithProviders } from '../../utils/test-utils'
-import { cleanup } from '@testing-library/react'
-import HeroBanner from './HeroBanner'
+import { screen } from '@testing-library/react'
 import Home from '../../views/Home'
+import { server } from '../../mocks/server'
 
 describe('Hero Banner', () => {
-  afterAll(() => {
-    cleanup()
+  beforeAll(() => {
+    server.listen()
   })
 
-  const { getByRole, findByRole } = renderWithProviders(<Home />)
+  beforeEach(() => {
+    renderWithProviders(<Home />)
+  })
+
+  afterEach(() => {
+    server.resetHandlers()
+  })
+
+  afterAll(() => {
+    server.close()
+  })
 
   it('should render on page', async () => {
-    expect(
-      await findByRole('heading', { name: /xx99 mark ii headphones/i })
-    ).toBeInTheDocument()
+    const heading = await screen.findByRole('heading', {
+      name: /xx99 mark ii headphones/i,
+    })
+    expect(heading).toBeInTheDocument()
   })
 
   it('should link to correct product', async () => {
-    expect(getByRole('link', { name: /see product/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: /see product/i })
+    ).toBeInTheDocument()
   })
 })
 

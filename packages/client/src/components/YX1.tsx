@@ -12,7 +12,7 @@ const YX1 = (): JSX.Element => {
   const product = productList.find((product) => product.name.includes('YX1'))
 
   return (
-    <Container paddingBottom>
+    <Container sx={{ marginBottom: { xs: 15, md: 12 } }}>
       <Grid
         container
         direction={{ xs: 'column', md: 'row' }}
@@ -27,8 +27,8 @@ const YX1 = (): JSX.Element => {
           sx={{
             backgroundImage: {
               xs: 'url("./assets/home/mobile/image-earphones-yx1.jpg")',
-              sm: 'url("./assets/home/tablet/image-earphones-yx1.jpg")',
-              md: 'url("./assets/home/desktop/image-earphones-yx1.jpg")',
+              md: 'url("./assets/home/tablet/image-earphones-yx1.jpg")',
+              lg: 'url("./assets/home/desktop/image-earphones-yx1.jpg")',
             },
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

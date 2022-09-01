@@ -21,6 +21,14 @@ theme = createTheme(theme, {
         letterSpacing: '0.2rem',
       },
     },
+    h2: {
+      [theme.breakpoints.up('md')]: {
+        fontSize: '4rem',
+        fontWeight: 700,
+        lineHeight: '4.4rem',
+        letterSpacing: '1.5px',
+      },
+    },
   },
 })
 
