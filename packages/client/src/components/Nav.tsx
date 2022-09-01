@@ -79,7 +79,11 @@ const Nav = (): JSX.Element => {
               Home
             </Link>
             {productCategoryData.map((category, index) => (
-              <Link component={RouterLink} to={category.slug} key={index}>
+              <Link
+                component={RouterLink}
+                to={`products/${category.slug}`}
+                key={index}
+              >
                 {category.name}
               </Link>
             ))}

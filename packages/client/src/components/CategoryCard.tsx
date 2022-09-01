@@ -57,7 +57,7 @@ const CategoryCard = ({
             variant='text'
             endIcon={<KeyboardArrowRight color='primary' />}
             component={RouterLink}
-            to={category.slug}
+            to={`/products/${category.slug}`}
             onClick={handleLink}
           >
             Shop

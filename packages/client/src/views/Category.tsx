@@ -4,13 +4,11 @@ import ProductPreview from '../components/ProductPreview'
 import ProductCategories from '../components/ProductCategories'
 import { useAppSelector } from '../app/hooks'
 import { selectProducts } from '../features/product/productSlice'
+import { useParams } from 'react-router-dom'
 
-interface ComponentProps {
-  category: string
-}
-
-const Cateogory = ({ category }: ComponentProps): JSX.Element => {
+const Cateogory = (): JSX.Element => {
   const select = useAppSelector
+  const { category } = useParams()
 
   const { error, status, productList } = select(selectProducts)
   const products = productList

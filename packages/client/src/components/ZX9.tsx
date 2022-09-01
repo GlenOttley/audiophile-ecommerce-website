@@ -91,7 +91,7 @@ const ZX9 = (): JSX.Element => {
                 <Button
                   variant='dark'
                   component={RouterLink}
-                  to={`/${product?.category}/${product?.slug}`}
+                  to={`/products/${product?.category}/${product?.slug}`}
                 >
                   See Product
                 </Button>
