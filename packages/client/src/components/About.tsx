@@ -21,9 +21,9 @@ const About = () => {
           marginBottom={5}
           sx={{
             backgroundImage: {
-              xs: 'url("./assets/shared/mobile/image-best-gear.jpg")',
-              md: 'url("./assets/shared/tablet/image-best-gear.jpg")',
-              lg: 'url("./assets/shared/desktop/image-best-gear.jpg")',
+              xs: 'url("/assets/shared/mobile/image-best-gear.jpg")',
+              md: 'url("/assets/shared/tablet/image-best-gear.jpg")',
+              lg: 'url("/assets/shared/desktop/image-best-gear.jpg")',
             },
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

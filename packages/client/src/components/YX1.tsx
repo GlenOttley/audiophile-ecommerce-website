@@ -63,7 +63,7 @@ const YX1 = (): JSX.Element => {
               <Button
                 variant='outlined'
                 component={RouterLink}
-                to={`/${product?.category}/${product?.slug}`}
+                to={`/products/${product?.category}/${product?.slug}`}
               >
                 See Product
               </Button>

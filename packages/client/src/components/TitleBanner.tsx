@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import Container from './Container'
 
 interface ComponentProps {
-  children: string
+  children?: string
 }
 
 const TitleBanner = ({ children }: ComponentProps): JSX.Element => {

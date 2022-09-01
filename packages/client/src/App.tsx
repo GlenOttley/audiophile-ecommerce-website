@@ -25,18 +25,9 @@ const App = (): JSX.Element => {
             <ScrollToTop>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route
-                  path='/headphones'
-                  element={<Category category='headphones' />}
-                />
-                <Route
-                  path='/speakers'
-                  element={<Category category='speakers' />}
-                />
-                <Route
-                  path='/earphones'
-                  element={<Category category='earphones' />}
-                />
+                <Route path='/products'>
+                  <Route path=':category' element={<Category />} />
+                </Route>
               </Routes>
             </ScrollToTop>
           </Box>
