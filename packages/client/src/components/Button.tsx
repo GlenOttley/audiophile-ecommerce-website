@@ -1,21 +1,31 @@
-import { styled, Button as MuiButton, ButtonProps } from '@mui/material'
+import {
+  styled,
+  Button as MuiButton,
+  ButtonProps,
+  ButtonBaseProps,
+} from '@mui/material'
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     dark: true
   }
+
+  // interface ButtonBaseProps
 }
 
 const Button = styled(MuiButton)<ButtonProps>(({ theme, variant }) => ({
-  padding: theme.spacing(2, 4),
+  // padding: theme.spacing(2, 4),
+  padding: '15px 32px',
   fontSize: '1.3rem',
   fontWeight: 700,
   lineHeight: 'normal',
   letterSpacing: '0.1rem',
   borderRadius: 0,
+  boxShadow: 'none',
   ...(variant === 'contained' && {
     '&:hover': {
       backgroundColor: theme.palette.primary.light,
+      boxShadow: 'none',
     },
   }),
   ...(variant === 'outlined' && {
@@ -31,6 +41,7 @@ const Button = styled(MuiButton)<ButtonProps>(({ theme, variant }) => ({
     // color: theme.palette.grey[600],
     color: theme.palette.text.primary,
     fontWeight: 700,
+    padding: 0,
     '&:hover': {
       backgroundColor: 'transparent',
       color: theme.palette.primary.main,

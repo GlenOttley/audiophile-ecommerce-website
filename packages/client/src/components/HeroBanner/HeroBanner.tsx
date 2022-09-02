@@ -18,7 +18,7 @@ const HeroBanner = (): JSX.Element => {
       bgcolor={theme.palette.grey[900]}
       sx={{
         [theme.breakpoints.between('xs', 'lg')]: {
-          backgroundImage: 'url("./assets/home/desktop/image-header.png")',
+          backgroundImage: 'url("/assets/home/desktop/image-header.png")',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -74,7 +74,7 @@ const HeroBanner = (): JSX.Element => {
             <Button
               variant='contained'
               component={RouterLink}
-              to={`/${product?.category}/${product?.slug}`}
+              to={`/products/${product?.category}/${product?.slug}`}
             >
               SEE PRODUCT
             </Button>

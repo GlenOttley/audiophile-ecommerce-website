@@ -5,12 +5,13 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './views/Home'
 import Category from './views/Category'
+import ProductDetail from './views/ProductDetail'
 import { useAppDispatch } from './app/hooks'
 import { getProducts } from './features/product/productSlice'
 import ScrollToTop from './utils/scrollToTop'
 
 const App = (): JSX.Element => {
-  console.log(theme)
+  console.log(theme.typography)
 
   const dispatch = useAppDispatch()
   dispatch(getProducts())
@@ -27,6 +28,10 @@ const App = (): JSX.Element => {
                 <Route path='/' element={<Home />} />
                 <Route path='/products'>
                   <Route path=':category' element={<Category />} />
+                  <Route
+                    path=':category/:productSlug'
+                    element={<ProductDetail />}
+                  />
                 </Route>
               </Routes>
             </ScrollToTop>

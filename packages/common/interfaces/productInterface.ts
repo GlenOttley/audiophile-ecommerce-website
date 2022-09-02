@@ -1,12 +1,13 @@
+interface IItem {
+  quantity: number
+  item: string
+}
+
 interface IImage {
   mobile: string
   tablet: string
   desktop: string
-}
-
-interface IItem {
-  quantity: number
-  item: string
+  alt: string
 }
 
 interface IGallery {

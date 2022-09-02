@@ -74,7 +74,7 @@ const ProductPreview = ({ product, index }: ComponentProps): JSX.Element => {
           <Button
             variant='contained'
             component={RouterLink}
-            to={`/${product?.category}/${product?.slug}`}
+            to={`/products/${product?.category}/${product?.slug}`}
           >
             See Product
           </Button>

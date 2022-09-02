@@ -19,6 +19,7 @@ const Nav = (): JSX.Element => {
       sx={{
         backgroundColor: theme.palette.grey[900],
         zIndex: theme.zIndex.drawer + 1,
+        boxShadow: 'none',
       }}
     >
       <Container>

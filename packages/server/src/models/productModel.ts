@@ -13,6 +13,10 @@ const imageSchema = new Schema({
     type: String,
     required: true,
   },
+  alt: {
+    type: String,
+    required: true,
+  },
 })
 
 const itemSchema = new Schema({

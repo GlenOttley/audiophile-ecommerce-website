@@ -30,6 +30,25 @@ export const typography = {
     lineHeight: 'auto',
     letterSpacing: '2px',
   },
+  h5: {
+    fontSize: '2.4rem',
+    fontWeight: 700,
+    lineHeight: '3.3rem',
+    letterSpacing: '1.7px',
+  },
+  h6: {
+    fontSize: '1.8rem',
+    fontWeight: 700,
+    lineHeight: '2.4rem',
+    letterSpacing: '1.3px',
+  },
+  subtitle1: {
+    // this is the same as h5 but does not get larger at any breakpoint
+    fontSize: '2.4rem',
+    fontWeight: 700,
+    lineHeight: '3.3rem',
+    letterSpacing: '1.7px',
+  },
   overline: {
     display: 'block',
     fontSize: '1.4rem',

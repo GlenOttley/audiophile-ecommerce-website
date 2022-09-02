@@ -8,6 +8,7 @@ const productData: IProduct[] = [
       mobile: '/assets/product-yx1-earphones/mobile/image-product.jpg',
       tablet: '/assets/product-yx1-earphones/tablet/image-product.jpg',
       desktop: '/assets/product-yx1-earphones/desktop/image-product.jpg',
+      alt: 'yx1 earphones charging case',
     },
     category: 'earphones',
     categoryImage: {
@@ -17,6 +18,7 @@ const productData: IProduct[] = [
         '/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg',
+      alt: 'yx1 earphones charging case',
     },
     new: true,
     price: 599,
@@ -51,16 +53,19 @@ const productData: IProduct[] = [
         mobile: '/assets/product-yx1-earphones/mobile/image-gallery-1.jpg',
         tablet: '/assets/product-yx1-earphones/tablet/image-gallery-1.jpg',
         desktop: '/assets/product-yx1-earphones/desktop/image-gallery-1.jpg',
+        alt: 'close up of yx1 earphones on dark leather surface',
       },
       second: {
         mobile: '/assets/product-yx1-earphones/mobile/image-gallery-2.jpg',
         tablet: '/assets/product-yx1-earphones/tablet/image-gallery-2.jpg',
         desktop: '/assets/product-yx1-earphones/desktop/image-gallery-2.jpg',
+        alt: 'yx1 earphones being charged inside included charging case',
       },
       third: {
         mobile: '/assets/product-yx1-earphones/mobile/image-gallery-3.jpg',
         tablet: '/assets/product-yx1-earphones/tablet/image-gallery-3.jpg',
         desktop: '/assets/product-yx1-earphones/desktop/image-gallery-3.jpg',
+        alt: 'yx1 earphones and included charging case on dark leather surface',
       },
     },
     others: [
@@ -71,6 +76,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          alt: 'xx99 mark one headphones',
         },
       },
       {
@@ -80,6 +86,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          alt: 'xx59 headphones',
         },
       },
       {
@@ -89,6 +96,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          alt: 'zx9 speaker',
         },
       },
     ],
@@ -100,6 +108,7 @@ const productData: IProduct[] = [
       mobile: '/assets/product-xx59-headphones/mobile/image-product.jpg',
       tablet: '/assets/product-xx59-headphones/tablet/image-product.jpg',
       desktop: '/assets/product-xx59-headphones/desktop/image-product.jpg',
+      alt: 'xx59 headphones',
     },
     category: 'headphones',
     categoryImage: {
@@ -109,6 +118,7 @@ const productData: IProduct[] = [
         '/assets/product-xx59-headphones/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg',
+      alt: 'xx59 headphones',
     },
     new: false,
     price: 899,
@@ -139,16 +149,19 @@ const productData: IProduct[] = [
         mobile: '/assets/product-xx59-headphones/mobile/image-gallery-1.jpg',
         tablet: '/assets/product-xx59-headphones/tablet/image-gallery-1.jpg',
         desktop: '/assets/product-xx59-headphones/desktop/image-gallery-1.jpg',
+        alt: 'person dancing whilst listening to music wearing xx59 headphones',
       },
       second: {
         mobile: '/assets/product-xx59-headphones/mobile/image-gallery-2.jpg',
         tablet: '/assets/product-xx59-headphones/tablet/image-gallery-2.jpg',
         desktop: '/assets/product-xx59-headphones/desktop/image-gallery-2.jpg',
+        alt: 'xx59 headphones placed around stack of books',
       },
       third: {
         mobile: '/assets/product-xx59-headphones/mobile/image-gallery-3.jpg',
         tablet: '/assets/product-xx59-headphones/tablet/image-gallery-3.jpg',
         desktop: '/assets/product-xx59-headphones/desktop/image-gallery-3.jpg',
+        alt: 'outstretched arm holding xx59 headphones on one finger',
       },
     },
     others: [
@@ -159,6 +172,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-two-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-two-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
+          alt: 'xx99 mark two headphones',
         },
       },
       {
@@ -168,6 +182,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          alt: 'xx99 mark one headphones',
         },
       },
       {
@@ -177,6 +192,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          alt: 'zx9 speaker',
         },
       },
     ],
@@ -191,6 +207,7 @@ const productData: IProduct[] = [
         '/assets/product-xx99-mark-one-headphones/tablet/image-product.jpg',
       desktop:
         '/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg',
+      alt: 'xx99 mark one headphones',
     },
     category: 'headphones',
     categoryImage: {
@@ -200,6 +217,7 @@ const productData: IProduct[] = [
         '/assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg',
+      alt: 'xx99 mark one headphones',
     },
     new: false,
     price: 1750,
@@ -233,6 +251,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg',
         desktop:
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg',
+        alt: 'xx99 mark one headphones hanging from microphone stand',
       },
       second: {
         mobile:
@@ -241,6 +260,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg',
         desktop:
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg',
+        alt: 'xx99 mark one headphones on table amongst other items including a sneaker and smart watch',
       },
       third: {
         mobile:
@@ -249,6 +269,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg',
         desktop:
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg',
+        alt: 'xx99 mark one headphones with lit fairy lights draped over top',
       },
     },
     others: [
@@ -259,6 +280,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-two-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-two-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
+          alt: 'xx99 mark two headphones',
         },
       },
       {
@@ -268,6 +290,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          alt: 'xx59 headphones',
         },
       },
       {
@@ -277,6 +300,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          alt: 'zx9 speaker',
         },
       },
     ],
@@ -291,6 +315,7 @@ const productData: IProduct[] = [
         '/assets/product-xx99-mark-two-headphones/tablet/image-product.jpg',
       desktop:
         '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg',
+      alt: 'xx99 mark two headphones',
     },
     category: 'headphones',
     categoryImage: {
@@ -300,6 +325,7 @@ const productData: IProduct[] = [
         '/assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg',
+      alt: 'xx99 mark two headphones',
     },
     new: true,
     price: 2999,
@@ -337,6 +363,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg',
         desktop:
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg',
+        alt: 'person wearing xx99 mark two headphones whilst looking off to the side',
       },
       second: {
         mobile:
@@ -345,6 +372,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg',
         desktop:
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg',
+        alt: 'xx99 mark two headphones on table along with other items including an iphone and vinyl record cover',
       },
       third: {
         mobile:
@@ -353,6 +381,7 @@ const productData: IProduct[] = [
           '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg',
         desktop:
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg',
+        alt: 'xx99 mark two headphones up close on a dark background',
       },
     },
     others: [
@@ -363,6 +392,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          alt: 'xx99 mark two headphones',
         },
       },
       {
@@ -372,6 +402,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          alt: 'xx59 headphones',
         },
       },
       {
@@ -381,6 +412,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          alt: 'zx9 speaker',
         },
       },
     ],
@@ -392,6 +424,7 @@ const productData: IProduct[] = [
       mobile: '/assets/product-zx7-speaker/mobile/image-product.jpg',
       tablet: '/assets/product-zx7-speaker/tablet/image-product.jpg',
       desktop: '/assets/product-zx7-speaker/desktop/image-product.jpg',
+      alt: 'zx7 speaker',
     },
     category: 'speakers',
     categoryImage: {
@@ -401,6 +434,7 @@ const productData: IProduct[] = [
         '/assets/product-zx7-speaker/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg',
+      alt: 'zx7 speaker',
     },
     new: false,
     price: 3500,
@@ -435,16 +469,19 @@ const productData: IProduct[] = [
         mobile: '/assets/product-zx7-speaker/mobile/image-gallery-1.jpg',
         tablet: '/assets/product-zx7-speaker/tablet/image-gallery-1.jpg',
         desktop: '/assets/product-zx7-speaker/desktop/image-gallery-1.jpg',
+        alt: 'close up image of zx7 speaker cone',
       },
       second: {
         mobile: '/assets/product-zx7-speaker/mobile/image-gallery-2.jpg',
         tablet: '/assets/product-zx7-speaker/tablet/image-gallery-2.jpg',
         desktop: '/assets/product-zx7-speaker/desktop/image-gallery-2.jpg',
+        alt: 'music producer sitting at desk in studio with two zx7 speakers on stands',
       },
       third: {
         mobile: '/assets/product-zx7-speaker/mobile/image-gallery-3.jpg',
         tablet: '/assets/product-zx7-speaker/tablet/image-gallery-3.jpg',
         desktop: '/assets/product-zx7-speaker/desktop/image-gallery-3.jpg',
+        alt: 'close up of zx7 speaker on table',
       },
     },
     others: [
@@ -455,6 +492,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          alt: 'zx9 speaker',
         },
       },
       {
@@ -464,6 +502,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          alt: 'xx99 mark one headphones',
         },
       },
       {
@@ -473,6 +512,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          alt: 'xx59 headphones',
         },
       },
     ],
@@ -484,6 +524,7 @@ const productData: IProduct[] = [
       mobile: '/assets/product-zx9-speaker/mobile/image-product.jpg',
       tablet: '/assets/product-zx9-speaker/tablet/image-product.jpg',
       desktop: '/assets/product-zx9-speaker/desktop/image-product.jpg',
+      alt: 'zx9 speaker',
     },
     category: 'speakers',
     categoryImage: {
@@ -493,6 +534,7 @@ const productData: IProduct[] = [
         '/assets/product-zx9-speaker/tablet/image-category-page-preview.jpg',
       desktop:
         '/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg',
+      alt: 'zx9 speaker',
     },
     new: true,
     price: 4500,
@@ -527,16 +569,19 @@ const productData: IProduct[] = [
         mobile: '/assets/product-zx9-speaker/mobile/image-gallery-1.jpg',
         tablet: '/assets/product-zx9-speaker/tablet/image-gallery-1.jpg',
         desktop: '/assets/product-zx9-speaker/desktop/image-gallery-1.jpg',
+        alt: 'close up of zx9 speaker cone',
       },
       second: {
         mobile: '/assets/product-zx9-speaker/mobile/image-gallery-2.jpg',
         tablet: '/assets/product-zx9-speaker/tablet/image-gallery-2.jpg',
         desktop: '/assets/product-zx9-speaker/desktop/image-gallery-2.jpg',
+        alt: 'zx9 speaker on floor in a lounge, alongside a shelf filled with vinyl records and many house plants',
       },
       third: {
         mobile: '/assets/product-zx9-speaker/mobile/image-gallery-3.jpg',
         tablet: '/assets/product-zx9-speaker/tablet/image-gallery-3.jpg',
         desktop: '/assets/product-zx9-speaker/desktop/image-gallery-3.jpg',
+        alt: 'pair of zx9 speakers',
       },
     },
     others: [
@@ -547,6 +592,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-zx7-speaker.jpg',
           tablet: '/assets/shared/tablet/image-zx7-speaker.jpg',
           desktop: '/assets/shared/desktop/image-zx7-speaker.jpg',
+          alt: 'zx7 speaker',
         },
       },
       {
@@ -556,6 +602,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          alt: 'xx99 mark one headphones',
         },
       },
       {
@@ -565,6 +612,7 @@ const productData: IProduct[] = [
           mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
           tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
           desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          alt: 'xx59 headphones',
         },
       },
     ],

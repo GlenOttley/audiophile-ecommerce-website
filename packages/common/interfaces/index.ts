@@ -1,3 +1,3 @@
 import IProduct from './productInterface'
 
-export { IProduct }
+export type { IProduct }
