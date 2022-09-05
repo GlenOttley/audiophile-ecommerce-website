@@ -63,7 +63,7 @@ const ProductPreview = ({ product, index }: ComponentProps): JSX.Element => {
           )}
           <Typography
             variant='h2'
-            color={theme.palette.common.black}
+            color='black'
             marginBottom={{ xs: 3, md: 4 }}
           >
             {product.name.toUpperCase()}

@@ -1,6 +1,10 @@
 import { IProduct } from '@audiophile/common/interfaces'
 
-const productData: IProduct[] = [
+interface IProductData extends Omit<IProduct, '_id' | 'others'> {
+  others: []
+}
+
+const productData: IProductData[] = [
   {
     slug: 'yx1-earphones',
     name: 'YX1 Wireless Earphones',
@@ -68,38 +72,7 @@ const productData: IProduct[] = [
         alt: 'yx1 earphones and included charging case on dark leather surface',
       },
     },
-    others: [
-      {
-        slug: 'xx99-mark-one-headphones',
-        name: 'XX99 Mark I',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
-          alt: 'xx99 mark one headphones',
-        },
-      },
-      {
-        slug: 'xx59-headphones',
-        name: 'XX59',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
-          alt: 'xx59 headphones',
-        },
-      },
-      {
-        slug: 'zx9-speaker',
-        name: 'ZX9 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-          alt: 'zx9 speaker',
-        },
-      },
-    ],
+    others: [],
   },
   {
     slug: 'xx59-headphones',
@@ -164,38 +137,7 @@ const productData: IProduct[] = [
         alt: 'outstretched arm holding xx59 headphones on one finger',
       },
     },
-    others: [
-      {
-        slug: 'xx99-mark-two-headphones',
-        name: 'XX99 Mark II',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-two-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-two-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
-          alt: 'xx99 mark two headphones',
-        },
-      },
-      {
-        slug: 'xx99-mark-one-headphones',
-        name: 'XX99 Mark I',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
-          alt: 'xx99 mark one headphones',
-        },
-      },
-      {
-        slug: 'zx9-speaker',
-        name: 'ZX9 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-          alt: 'zx9 speaker',
-        },
-      },
-    ],
+    others: [],
   },
   {
     slug: 'xx99-mark-one-headphones',
@@ -272,38 +214,7 @@ const productData: IProduct[] = [
         alt: 'xx99 mark one headphones with lit fairy lights draped over top',
       },
     },
-    others: [
-      {
-        slug: 'xx99-mark-two-headphones',
-        name: 'XX99 Mark II',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-two-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-two-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
-          alt: 'xx99 mark two headphones',
-        },
-      },
-      {
-        slug: 'xx59-headphones',
-        name: 'XX59',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
-          alt: 'xx59 headphones',
-        },
-      },
-      {
-        slug: 'zx9-speaker',
-        name: 'ZX9 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-          alt: 'zx9 speaker',
-        },
-      },
-    ],
+    others: [],
   },
   {
     slug: 'xx99-mark-two-headphones',
@@ -384,38 +295,7 @@ const productData: IProduct[] = [
         alt: 'xx99 mark two headphones up close on a dark background',
       },
     },
-    others: [
-      {
-        slug: 'xx99-mark-one-headphones',
-        name: 'XX99 Mark I',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
-          alt: 'xx99 mark two headphones',
-        },
-      },
-      {
-        slug: 'xx59-headphones',
-        name: 'XX59',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
-          alt: 'xx59 headphones',
-        },
-      },
-      {
-        slug: 'zx9-speaker',
-        name: 'ZX9 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-          alt: 'zx9 speaker',
-        },
-      },
-    ],
+    others: [],
   },
   {
     slug: 'zx7-speaker',
@@ -484,38 +364,7 @@ const productData: IProduct[] = [
         alt: 'close up of zx7 speaker on table',
       },
     },
-    others: [
-      {
-        slug: 'zx9-speaker',
-        name: 'ZX9 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx9-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx9-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-          alt: 'zx9 speaker',
-        },
-      },
-      {
-        slug: 'xx99-mark-one-headphones',
-        name: 'XX99 Mark I',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
-          alt: 'xx99 mark one headphones',
-        },
-      },
-      {
-        slug: 'xx59-headphones',
-        name: 'XX59',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
-          alt: 'xx59 headphones',
-        },
-      },
-    ],
+    others: [],
   },
   {
     slug: 'zx9-speaker',
@@ -584,38 +433,7 @@ const productData: IProduct[] = [
         alt: 'pair of zx9 speakers',
       },
     },
-    others: [
-      {
-        slug: 'zx7-speaker',
-        name: 'ZX7 Speaker',
-        image: {
-          mobile: '/assets/shared/mobile/image-zx7-speaker.jpg',
-          tablet: '/assets/shared/tablet/image-zx7-speaker.jpg',
-          desktop: '/assets/shared/desktop/image-zx7-speaker.jpg',
-          alt: 'zx7 speaker',
-        },
-      },
-      {
-        slug: 'xx99-mark-one-headphones',
-        name: 'XX99 Mark I',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
-          alt: 'xx99 mark one headphones',
-        },
-      },
-      {
-        slug: 'xx59-headphones',
-        name: 'XX59',
-        image: {
-          mobile: '/assets/shared/mobile/image-xx59-headphones.jpg',
-          tablet: '/assets/shared/tablet/image-xx59-headphones.jpg',
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
-          alt: 'xx59 headphones',
-        },
-      },
-    ],
+    others: [],
   },
 ]
 

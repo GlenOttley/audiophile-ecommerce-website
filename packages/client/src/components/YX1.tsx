@@ -55,7 +55,7 @@ const YX1 = (): JSX.Element => {
               alignItems='start'
               gap={4}
             >
-              <Typography variant='h4' color={theme.palette.common.black}>
+              <Typography variant='h4' color='black'>
                 {product?.name.toUpperCase().split(' ')[0]}{' '}
                 {product?.name.toUpperCase().split(' ')[2]}
               </Typography>

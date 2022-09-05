@@ -1,7 +1,6 @@
 import theme from '../theme'
 import Container from './Container'
 import { Grid, Typography, Box } from '@mui/material'
-import Image from 'mui-image'
 
 const About = () => {
   return (
@@ -29,9 +28,7 @@ const About = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-        >
-          {/* <Image src='./assets/shared/mobile/image-best-gear.jpg' /> */}
-        </Grid>
+        />
         <Grid
           item
           lg={6}
@@ -41,7 +38,7 @@ const About = () => {
           <Typography
             variant='h2'
             textTransform='uppercase'
-            color={theme.palette.common.black}
+            color='black'
             marginBottom={4}
           >
             Bringing you the{' '}

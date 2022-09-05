@@ -21,7 +21,7 @@ const DetailOthers = ({ product }: ComponentProps): JSX.Element => {
       >
         {product?.others.map((product) => (
           <Grid
-            key={product.slug}
+            key={product._id}
             container
             item
             direction='column'
@@ -40,17 +40,17 @@ const DetailOthers = ({ product }: ComponentProps): JSX.Element => {
               }}
               alt={product?.image.alt}
             />
-            <Typography
-              variant='subtitle1'
-              color={theme.palette.common.black}
-              marginBottom={4}
-            >
+            <Typography variant='subtitle1' color='black' marginBottom={4}>
               {product.name.toUpperCase()}
             </Typography>
             <Button
               variant='contained'
               component={RouterLink}
-              to={`/${product.slug}`}
+              to={`/products/${product.category}/${product.slug}`}
+              sx={{
+                marginTop: 'auto',
+                marginBottom: 0,
+              }}
             >
               See Product
             </Button>

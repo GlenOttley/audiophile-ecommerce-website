@@ -15,7 +15,7 @@ const DetailFeatures = ({ product }: ComponentProps): JSX.Element => {
         <Grid item lg={6.66} marginBottom={{ xs: 11, md: 15, lg: 0 }}>
           <Typography
             variant='h5'
-            color={theme.palette.common.black}
+            color='black'
             textTransform='uppercase'
             marginBottom={{ xs: 3, md: 4 }}
           >
@@ -38,7 +38,7 @@ const DetailFeatures = ({ product }: ComponentProps): JSX.Element => {
           <Grid item md={6} lg='auto'>
             <Typography
               variant='h5'
-              color={theme.palette.common.black}
+              color='black'
               textTransform='uppercase'
               marginBottom={{ xs: 3, md: 4 }}
             >
