@@ -46,11 +46,7 @@ const CategoryCard = ({
           position='relative'
           top={{ md: '-10px', lg: '-20px' }}
         >
-          <Typography
-            variant='body2'
-            textTransform='uppercase'
-            color={theme.palette.common.black}
-          >
+          <Typography variant='body2' textTransform='uppercase' color='black'>
             {category.name}
           </Typography>
           <Button

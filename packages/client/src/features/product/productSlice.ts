@@ -9,7 +9,7 @@ export interface IProductState {
   error: string | null
 }
 
-const initialState: IProductState = {
+export const initialState: IProductState = {
   productList: [],
   status: 'idle',
   error: null,

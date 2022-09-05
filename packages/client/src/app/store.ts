@@ -6,10 +6,12 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit'
 import productReducer from '../features/product/productSlice'
+import cartReducer from '../features/cart/cartSlice'
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
   product: productReducer,
+  cart: cartReducer,
 })
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {

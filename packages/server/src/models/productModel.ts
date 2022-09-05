@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose'
+import { IImage, IItem, IProduct } from '@audiophile/common/interfaces'
 
-const imageSchema = new Schema({
+const imageSchema: Schema<IImage> = new Schema({
   mobile: {
     type: String,
     required: true,
@@ -19,7 +20,7 @@ const imageSchema = new Schema({
   },
 })
 
-const itemSchema = new Schema({
+const itemSchema: Schema<IItem> = new Schema({
   quantity: {
     type: Number,
     required: true,
@@ -31,6 +32,10 @@ const itemSchema = new Schema({
 })
 
 const productSchema = new Schema({
+  // _id: {
+  //   type: Schema.Types.ObjectId,
+  //   required: true,
+  // },
   slug: {
     type: String,
     required: true,
@@ -85,7 +90,12 @@ const productSchema = new Schema({
       _id: false,
     },
   },
-  others: [this],
+  others: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Product',
+    },
+  ],
 })
 
 // if above code for 'others' does not work
@@ -93,4 +103,10 @@ const productSchema = new Schema({
 //   others: [productSchema]
 // })
 
-export default model('Product', productSchema)
+export interface ISavedProductDocument
+  extends Omit<IProduct, 'others'>,
+    Omit<Document, '_id'> {
+  others: string[]
+}
+
+export default model<ISavedProductDocument>('Product', productSchema)

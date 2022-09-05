@@ -17,7 +17,25 @@ const importData = async () => {
 
     await Product.insertMany(productData)
 
+    // add three random product id's to each products 'others' array
+    const products = await Product.find({})
+
+    for (let i = 0; i < products.length; i++) {
+      let currentProduct = products[i]
+      while (currentProduct.others.length < 3) {
+        let j = Math.floor(Math.random() * products.length)
+        let otherProduct = products[j]
+        if (currentProduct._id !== otherProduct._id) {
+          if (!currentProduct.others.includes(otherProduct._id)) {
+            currentProduct.others.push(otherProduct._id)
+          }
+        }
+      }
+      await currentProduct.save()
+    }
+
     console.log('Data imported!')
+
     process.exit()
   } catch (error) {
     console.error(`${error}`)
