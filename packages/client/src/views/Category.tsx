@@ -6,7 +6,7 @@ import { useAppSelector } from '../app/hooks'
 import { selectProducts } from '../features/product/productSlice'
 import { useParams } from 'react-router-dom'
 
-const Cateogory = (): JSX.Element => {
+const Category = (): JSX.Element => {
   const select = useAppSelector
   const { category } = useParams()
 
@@ -27,4 +27,4 @@ const Cateogory = (): JSX.Element => {
   )
 }
 
-export default Cateogory
+export default Category

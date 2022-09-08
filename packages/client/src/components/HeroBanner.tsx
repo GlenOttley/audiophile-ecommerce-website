@@ -1,10 +1,10 @@
-import Container from '../Container'
+import Container from './Container'
 import { Box, Grid, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import Button from '../Button'
-import theme from '../../theme'
-import { useAppSelector } from '../../app/hooks'
-import { selectProducts } from '../../features/product/productSlice'
+import Button from './Button'
+import theme from '../theme'
+import { useAppSelector } from '../app/hooks'
+import { selectProducts } from '../features/product/productSlice'
 
 const HeroBanner = (): JSX.Element => {
   const select = useAppSelector

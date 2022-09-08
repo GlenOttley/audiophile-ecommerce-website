@@ -32,9 +32,14 @@ const Button = styled(MuiButton)<ButtonProps>(({ theme, type }) => ({
 interface ComponentProps {
   value: number
   setValue: React.Dispatch<SetStateAction<number>>
+  variant: 'large' | 'small'
 }
 
-const NumberField = ({ value, setValue }: ComponentProps): JSX.Element => {
+const NumberField = ({
+  value,
+  setValue,
+  variant,
+}: ComponentProps): JSX.Element => {
   function increment() {
     setValue(value + 1)
   }
@@ -48,7 +53,10 @@ const NumberField = ({ value, setValue }: ComponentProps): JSX.Element => {
       container
       item
       wrap='nowrap'
-      sx={{ maxHeight: '48px', width: '120px' }}
+      sx={{
+        maxHeight: variant === 'large' ? '48px' : '32px',
+        width: variant === 'large' ? '120px' : '96px',
+      }}
     >
       <Button onClick={decrement} disableRipple size='small'>
         -

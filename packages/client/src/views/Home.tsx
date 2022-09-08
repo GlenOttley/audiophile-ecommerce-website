@@ -1,4 +1,4 @@
-import HeroBanner from '../components/HeroBanner/HeroBanner'
+import HeroBanner from '../components/HeroBanner'
 import ProductCategories from '../components/ProductCategories'
 import ZX9 from '../components/ZX9'
 import ZX7 from '../components/ZX7'

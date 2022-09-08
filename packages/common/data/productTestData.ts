@@ -1,4 +1,10 @@
-const productTestData = [
+import { IProduct } from '../interfaces'
+
+interface IProductData extends Omit<IProduct, 'others'> {
+  others?: IProductData[]
+}
+
+const productTestData: IProductData[] = [
   {
     gallery: {
       first: {
@@ -136,11 +142,6 @@ const productTestData = [
             item: '7.5m optical cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
-          '6315f82f31d6b2d159034a82',
-        ],
       },
       {
         gallery: {
@@ -214,11 +215,6 @@ const productTestData = [
             quantity: 1,
             item: '3.5mm 5m audio cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a7d',
-          '6315f82f31d6b2d159034a7f',
         ],
       },
       {
@@ -296,11 +292,6 @@ const productTestData = [
             quantity: 1,
             item: '3.5mm 5m audio cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a82',
-          '6315f82f31d6b2d159034a81',
         ],
       },
     ],
@@ -450,11 +441,6 @@ const productTestData = [
             item: 'Travel bag',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7d',
-        ],
       },
       {
         gallery: {
@@ -526,11 +512,6 @@ const productTestData = [
             quantity: 1,
             item: 'Travel pouch',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
         ],
       },
       {
@@ -608,11 +589,6 @@ const productTestData = [
             quantity: 1,
             item: '3.5mm 5m audio cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a82',
-          '6315f82f31d6b2d159034a81',
         ],
       },
     ],
@@ -774,11 +750,6 @@ const productTestData = [
             item: 'Travel bag',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7d',
-        ],
       },
       {
         gallery: {
@@ -848,11 +819,6 @@ const productTestData = [
             item: '10m optical cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7f',
-        ],
       },
       {
         gallery: {
@@ -921,11 +887,6 @@ const productTestData = [
             quantity: 1,
             item: '7.5m optical cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
-          '6315f82f31d6b2d159034a82',
         ],
       },
     ],
@@ -1079,11 +1040,6 @@ const productTestData = [
             item: '7.5m optical cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
-          '6315f82f31d6b2d159034a82',
-        ],
       },
       {
         gallery: {
@@ -1158,11 +1114,6 @@ const productTestData = [
             item: '3.5mm 5m audio cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a7d',
-          '6315f82f31d6b2d159034a7f',
-        ],
       },
       {
         gallery: {
@@ -1234,11 +1185,6 @@ const productTestData = [
             quantity: 1,
             item: 'Travel pouch',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
         ],
       },
     ],
@@ -1385,11 +1331,6 @@ const productTestData = [
             item: '3.5mm 5m audio cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a7d',
-          '6315f82f31d6b2d159034a7f',
-        ],
       },
       {
         gallery: {
@@ -1467,11 +1408,6 @@ const productTestData = [
             item: '3.5mm 5m audio cable',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a82',
-          '6315f82f31d6b2d159034a81',
-        ],
       },
       {
         gallery: {
@@ -1540,11 +1476,6 @@ const productTestData = [
             quantity: 1,
             item: '10m optical cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7f',
         ],
       },
     ],
@@ -1698,11 +1629,6 @@ const productTestData = [
             item: 'Travel bag',
           },
         ],
-        others: [
-          '6315f82f31d6b2d159034a81',
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7d',
-        ],
       },
       {
         gallery: {
@@ -1771,11 +1697,6 @@ const productTestData = [
             quantity: 1,
             item: '7.5m optical cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a7e',
-          '6315f82f31d6b2d159034a7f',
-          '6315f82f31d6b2d159034a82',
         ],
       },
       {
@@ -1853,11 +1774,6 @@ const productTestData = [
             quantity: 1,
             item: '3.5mm 5m audio cable',
           },
-        ],
-        others: [
-          '6315f82f31d6b2d159034a80',
-          '6315f82f31d6b2d159034a82',
-          '6315f82f31d6b2d159034a81',
         ],
       },
     ],

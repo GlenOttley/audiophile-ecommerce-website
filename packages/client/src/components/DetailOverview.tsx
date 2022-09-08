@@ -1,15 +1,14 @@
-import { useAppDispatch } from '../../app/hooks'
-import theme from '../../theme'
+import { IProduct } from '@audiophile/common/interfaces'
+import { KeyboardArrowLeft } from '@mui/icons-material'
+import { Box, Grid, Skeleton, Typography } from '@mui/material'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-import Container from '../Container'
-import Button from '../Button'
-import { Box, Grid, Typography, Skeleton } from '@mui/material'
-import { KeyboardArrowLeft } from '@mui/icons-material'
-import NumberField from '../NumberField'
-import { IProduct } from '@audiophile/common/interfaces'
-import { addCartItem } from '../../features/cart/cartSlice'
+import { useAppDispatch } from '../app/hooks'
+import { addCartItem } from '../features/cart/cartSlice'
+import theme from '../theme'
+import Button from './Button'
+import Container from './Container'
+import NumberField from './NumberField'
 
 interface ComponentProps {
   product?: IProduct
@@ -105,16 +104,28 @@ const DetailOverview = ({ product }: ComponentProps): JSX.Element => {
           <Grid container item wrap='nowrap' gap={3}>
             {product ? (
               <>
-                <NumberField value={quantity} setValue={setQuantity} />
+                <NumberField
+                  value={quantity}
+                  setValue={setQuantity}
+                  variant='large'
+                />
 
-                <Button variant='contained' onClick={handleAddToCart}>
+                <Button
+                  role='button'
+                  variant='contained'
+                  onClick={handleAddToCart}
+                >
                   Add to cart
                 </Button>
               </>
             ) : (
               <>
                 <Skeleton>
-                  <NumberField value={quantity} setValue={setQuantity} />
+                  <NumberField
+                    value={quantity}
+                    setValue={setQuantity}
+                    variant='large'
+                  />
                 </Skeleton>
 
                 <Skeleton>

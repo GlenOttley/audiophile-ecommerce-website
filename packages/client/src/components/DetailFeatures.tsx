@@ -1,6 +1,6 @@
 import theme from '../theme'
 import Container from './Container'
-import { Box, Grid, Typography } from '@mui/material'
+import { Grid, Typography, Skeleton } from '@mui/material'
 
 import { IProduct } from '@audiophile/common/interfaces'
 
@@ -22,7 +22,15 @@ const DetailFeatures = ({ product }: ComponentProps): JSX.Element => {
             Features
           </Typography>
           <Typography variant='body1' whiteSpace='pre-wrap'>
-            {product?.features}
+            {product ? (
+              product.features
+            ) : (
+              <Skeleton
+                sx={{
+                  height: { xs: 327, md: 250 },
+                }}
+              />
+            )}
           </Typography>
         </Grid>
         <Grid
@@ -45,22 +53,46 @@ const DetailFeatures = ({ product }: ComponentProps): JSX.Element => {
               In the box
             </Typography>
           </Grid>
-          <Grid item md={6} lg='auto'>
-            {product?.includes.map((item, index) => (
-              <Typography variant='body1' paddingBottom={1} key={index}>
-                <span
-                  style={{
-                    color: theme.palette.primary.main,
-                    fontWeight: 700,
-                    paddingRight: 24,
-                  }}
-                >
-                  {item.quantity}x
-                </span>
-                {item.item}
-              </Typography>
-            ))}
-          </Grid>
+          {product ? (
+            <Grid item md={6} lg='auto'>
+              {product.includes.map((item, index) => (
+                <Typography variant='body1' paddingBottom={1} key={index}>
+                  <span
+                    style={{
+                      color: theme.palette.primary.main,
+                      fontWeight: 700,
+                      paddingRight: 24,
+                    }}
+                  >
+                    {item.quantity}x
+                  </span>
+                  {item.item}
+                </Typography>
+              ))}
+            </Grid>
+          ) : (
+            <Grid
+              item
+              md={6}
+              lg='auto'
+              sx={{
+                height: 0,
+                overflow: 'hidden',
+                paddingTop: '100%',
+                position: 'relative',
+              }}
+            >
+              <Skeleton
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+            </Grid>
+          )}
         </Grid>
       </Grid>
     </Container>
