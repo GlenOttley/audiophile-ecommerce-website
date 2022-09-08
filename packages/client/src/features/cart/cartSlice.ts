@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IProduct } from '@audiophile/common/interfaces'
+import { RootState } from '../../app/store'
 
 interface ICartItem {
   productId: string
@@ -10,7 +11,7 @@ export interface ICartState {
   cartItems: ICartItem[]
 }
 
-const initialState: ICartState = {
+export const initialState: ICartState = {
   cartItems: [],
 }
 
@@ -32,5 +33,6 @@ export const cartSlice = createSlice({
   },
 })
 
+export const selectCart = (state: RootState) => state.cart
 export const { addCartItem } = cartSlice.actions
 export default cartSlice.reducer

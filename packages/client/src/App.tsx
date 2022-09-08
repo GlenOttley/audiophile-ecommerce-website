@@ -11,8 +11,6 @@ import { getProducts } from './features/product/productSlice'
 import ScrollToTop from './utils/scrollToTop'
 
 const App = (): JSX.Element => {
-  console.log(theme.typography)
-
   const dispatch = useAppDispatch()
   dispatch(getProducts())
 

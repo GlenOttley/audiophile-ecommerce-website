@@ -5,16 +5,19 @@ import type { RenderOptions } from '@testing-library/react'
 import type { PreloadedState } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import { AppStore, RootState, setupStore } from '../app/store'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { initialState as productInitialState } from '../features/product/productSlice'
 import productTestData from '@audiophile/common/data/productTestData'
-import productData from '@audiophile/common/data/productData'
+import { IProduct } from '@audiophile/common/interfaces'
+import { MemoryRouter } from 'react-router-dom'
+import { initialState as cartInitialState } from '../features/cart/cartSlice'
+import { InitialEntry } from 'history'
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>
   store?: AppStore
+  route?: InitialEntry
 }
 
 export function renderWithProviders(
@@ -23,18 +26,22 @@ export function renderWithProviders(
     preloadedState = {
       product: {
         ...productInitialState,
-        productList: productTestData,
+        productList: productTestData as IProduct[],
+      },
+      cart: {
+        ...cartInitialState,
       },
     },
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
+    route = '/',
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
       <Provider store={store}>
-        <Router>{children}</Router>
+        <MemoryRouter initialEntries={[route]}>{children}</MemoryRouter>
       </Provider>
     )
   }

@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { AppBar, Icon, Grid, Drawer } from '@mui/material'
+import React, { useState } from 'react'
+import { useAppSelector } from '../app/hooks'
+import { AppBar, Icon, Grid, Drawer, Badge, Dialog } from '@mui/material'
 import Container from './Container'
 import IconButton from './IconButton'
 import theme from '../theme'
@@ -9,16 +10,22 @@ import productCategoryData from '../data/productCategoryData'
 import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import MobileNav from './MobileNav'
+import { selectCart } from '../features/cart/cartSlice'
+import Cart from './Cart'
 
 const Nav = (): JSX.Element => {
-  const [showNav, setShowNav] = useState(false)
+  const select = useAppSelector
+  const [showNav, setShowNav] = useState<boolean>(false)
+  const [showCart, setShowCart] = useState<boolean>(false)
+
+  const { cartItems } = select(selectCart)
 
   return (
     <AppBar
       position='fixed'
       sx={{
         backgroundColor: theme.palette.grey[900],
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.modal + 1,
         boxShadow: 'none',
       }}
     >
@@ -95,15 +102,34 @@ const Nav = (): JSX.Element => {
               size='large'
               color='inherit'
               edge='end'
-              aria-label='cart'
+              aria-label='show cart'
+              onClick={() => setShowCart(!showCart)}
             >
-              <Icon>
-                <img
-                  src='/assets/shared/desktop/icon-cart.svg'
-                  alt='cart'
-                  style={{ transform: 'translateY(-2px)' }}
-                />
-              </Icon>
+              <Badge
+                data-testid='cartBadge'
+                componentsProps={{
+                  badge: {
+                    role: 'status',
+                  },
+                }}
+                badgeContent={cartItems.reduce(
+                  (acc, item) => acc + item.quantity,
+                  0
+                )}
+                color='primary'
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+              >
+                <Icon>
+                  <img
+                    src='/assets/shared/desktop/icon-cart.svg'
+                    alt='cart'
+                    style={{ transform: 'translateY(-2px)' }}
+                  />
+                </Icon>
+              </Badge>
             </IconButton>
           </Grid>
         </Grid>
@@ -116,6 +142,25 @@ const Nav = (): JSX.Element => {
       >
         <MobileNav setShowNav={setShowNav} />
       </Drawer>
+
+      <Dialog
+        maxWidth='sm'
+        fullWidth={true}
+        open={showCart}
+        onClose={() => setShowCart(false)}
+        PaperProps={{
+          sx: {
+            position: 'fixed',
+            top: '82px',
+            boxShadow: 'none',
+            borderRadius: theme.shape.borderRadius,
+            paddingTop: 4,
+            paddingBottom: 4,
+          },
+        }}
+      >
+        <Cart />
+      </Dialog>
     </AppBar>
   )
 }
