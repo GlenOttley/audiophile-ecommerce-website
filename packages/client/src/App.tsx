@@ -14,6 +14,8 @@ const App = (): JSX.Element => {
   const dispatch = useAppDispatch()
   dispatch(getProducts())
 
+  console.log(theme)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>

@@ -41,7 +41,7 @@ const DetailOthers = ({ product }: ComponentProps): JSX.Element => {
               alt={product?.image.alt}
             />
             <Typography variant='subtitle1' color='black' marginBottom={4}>
-              {product.name.toUpperCase()}
+              {product.shortName.toUpperCase()}
             </Typography>
             <Button
               variant='contained'

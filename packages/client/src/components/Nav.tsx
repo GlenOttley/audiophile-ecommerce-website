@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../app/hooks'
-import { AppBar, Icon, Grid, Drawer, Badge, Dialog } from '@mui/material'
+import {
+  AppBar,
+  Icon,
+  Grid,
+  Drawer,
+  Badge,
+  Dialog,
+  Typography,
+  useMediaQuery,
+} from '@mui/material'
 import Container from './Container'
 import IconButton from './IconButton'
 import theme from '../theme'
@@ -17,7 +26,6 @@ const Nav = (): JSX.Element => {
   const select = useAppSelector
   const [showNav, setShowNav] = useState<boolean>(false)
   const [showCart, setShowCart] = useState<boolean>(false)
-
   const { cartItems } = select(selectCart)
 
   return (
@@ -145,21 +153,31 @@ const Nav = (): JSX.Element => {
 
       <Dialog
         maxWidth='sm'
-        fullWidth={true}
+        fullWidth={useMediaQuery(theme.breakpoints.down('md'))}
         open={showCart}
         onClose={() => setShowCart(false)}
+        sx={{
+          maxWidth: '1110px',
+          margin: '0 auto',
+        }}
         PaperProps={{
           sx: {
-            position: 'fixed',
-            top: '82px',
+            width: { xs: 'calc(100% - 48px)' },
+            position: { xs: 'fixed', xl: 'relative' },
+            top: { xs: '82px', xl: 'auto' },
+            right: { md: 0, xl: 'auto' },
+            margin: { xl: '114px 0 auto auto' },
             boxShadow: 'none',
             borderRadius: theme.shape.borderRadius,
-            paddingTop: 4,
-            paddingBottom: 4,
+            padding: theme.spacing(4, 3.5),
           },
         }}
       >
-        <Cart />
+        {cartItems.length ? (
+          <Cart />
+        ) : (
+          <Typography variant='h6'>Your cart is empty</Typography>
+        )}
       </Dialog>
     </AppBar>
   )

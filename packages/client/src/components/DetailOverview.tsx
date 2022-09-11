@@ -24,7 +24,7 @@ const DetailOverview = ({ product }: ComponentProps): JSX.Element => {
     if (product) {
       dispatch(
         addCartItem({
-          productId: product._id,
+          _id: product._id,
           quantity,
         })
       )

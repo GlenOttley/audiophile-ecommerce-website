@@ -12,6 +12,7 @@ import { useState, SetStateAction } from 'react'
 const TextField = styled(MuiTextField)<TextFieldProps>(({ theme, type }) => ({
   ...(type === 'number' && {
     backgroundColor: theme.palette.grey[200],
+    borderRadius: 0,
     '& fieldset': {
       border: 'none',
     },
@@ -21,6 +22,7 @@ const TextField = styled(MuiTextField)<TextFieldProps>(({ theme, type }) => ({
 const Button = styled(MuiButton)<ButtonProps>(({ theme, type }) => ({
   backgroundColor: theme.palette.grey[200],
   color: theme.palette.text.primary,
+  borderRadius: 0,
   minWidth: '40px',
   maxWidth: '40px',
   '&:hover': {
@@ -67,8 +69,7 @@ const NumberField = ({
         onChange={({ target }) => setValue(parseInt(target.value))}
         inputProps={{
           style: {
-            paddingLeft: 0,
-            paddingRight: 0,
+            padding: variant === 'large' ? '14px 0' : '7px 0',
             textAlign: 'center',
             color: theme.palette.common.black,
             fontSize: '1.3rem',

@@ -11,6 +11,6 @@ export const palette = {
     900: '#101010',
   },
   text: {
-    primary: '#979797',
+    primary: '#808080',
   },
 }

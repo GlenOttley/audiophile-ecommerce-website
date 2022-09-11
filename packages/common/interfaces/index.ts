@@ -20,6 +20,7 @@ interface IProduct {
   _id: string
   slug: string
   name: string
+  shortName: string
   image: IImage
   category: 'earphones' | 'headphones' | 'speakers'
   categoryImage: IImage

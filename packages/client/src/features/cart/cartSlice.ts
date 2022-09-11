@@ -2,8 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IProduct } from '@audiophile/common/interfaces'
 import { RootState } from '../../app/store'
 
-interface ICartItem {
-  productId: string
+export interface ICartItem {
+  _id: string
+  quantity: number
+}
+
+export interface ICartProduct extends IProduct {
   quantity: number
 }
 
@@ -19,9 +23,10 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    clearCart: () => initialState,
     addCartItem: (state, action: PayloadAction<ICartItem>) => {
       const existingItem = state.cartItems.find(
-        (item) => item.productId === action.payload.productId
+        (item) => item._id === action.payload._id
       )
 
       if (existingItem) {
@@ -30,9 +35,18 @@ export const cartSlice = createSlice({
         state.cartItems.push(action.payload)
       }
     },
+    updateCartItemQuantity: (state, action: PayloadAction<ICartItem>) => {
+      const item = state.cartItems.find(
+        (item) => item._id === action.payload._id
+      )
+      if (item) {
+        item.quantity = action.payload.quantity
+      }
+    },
   },
 })
 
 export const selectCart = (state: RootState) => state.cart
-export const { addCartItem } = cartSlice.actions
+export const { addCartItem, updateCartItemQuantity, clearCart } =
+  cartSlice.actions
 export default cartSlice.reducer

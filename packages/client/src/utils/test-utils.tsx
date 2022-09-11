@@ -5,11 +5,7 @@ import type { RenderOptions } from '@testing-library/react'
 import type { PreloadedState } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import { AppStore, RootState, setupStore } from '../app/store'
-import { initialState as productInitialState } from '../features/product/productSlice'
-import productTestData from '@audiophile/common/data/productTestData'
-import { IProduct } from '@audiophile/common/interfaces'
 import { MemoryRouter } from 'react-router-dom'
-import { initialState as cartInitialState } from '../features/cart/cartSlice'
 import { InitialEntry } from 'history'
 
 // This type interface extends the default options for render from RTL, as well
@@ -23,15 +19,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = {
-      product: {
-        ...productInitialState,
-        productList: productTestData as IProduct[],
-      },
-      cart: {
-        ...cartInitialState,
-      },
-    },
+    preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
     route = '/',

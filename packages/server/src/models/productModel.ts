@@ -44,6 +44,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  shortName: {
+    type: String,
+    required: true,
+  },
   image: {
     type: imageSchema,
     _id: false,
