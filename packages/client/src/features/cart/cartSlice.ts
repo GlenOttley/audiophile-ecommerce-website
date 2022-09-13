@@ -46,6 +46,16 @@ export const cartSlice = createSlice({
   },
 })
 
+export const getCartProducts = (
+  cartItems: ICartItem[],
+  productList: IProduct[]
+): ICartProduct[] => {
+  return cartItems.map((item) => ({
+    ...productList.find((product) => product._id === item._id),
+    ...(item as ICartProduct),
+  }))
+}
+
 export const selectCart = (state: RootState) => state.cart
 export const { addCartItem, updateCartItemQuantity, clearCart } =
   cartSlice.actions

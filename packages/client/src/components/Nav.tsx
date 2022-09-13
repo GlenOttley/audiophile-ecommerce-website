@@ -174,7 +174,7 @@ const Nav = (): JSX.Element => {
         }}
       >
         {cartItems.length ? (
-          <Cart />
+          <Cart setShowCart={setShowCart} />
         ) : (
           <Typography variant='h6'>Your cart is empty</Typography>
         )}

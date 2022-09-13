@@ -49,11 +49,23 @@ export const typography = {
     lineHeight: '3.3rem',
     letterSpacing: '1.7px',
   },
+  subtitle2: {
+    fontSize: '1.3rem',
+    fontWeight: 700,
+    lineHeight: '2.5rem',
+    letterSpacing: '0.93px',
+  },
   overline: {
     display: 'block',
     fontSize: '1.4rem',
     fontWeight: 400,
     lineHeight: '1.9rem',
     letterSpacing: '10px',
+  },
+  caption: {
+    fontSize: '1.2rem',
+    fontWeight: 400,
+    lineHeight: 'auto',
+    letterSpacing: '-0.21px',
   },
 }
