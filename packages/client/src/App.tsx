@@ -9,12 +9,11 @@ import ProductDetail from './views/ProductDetail'
 import { useAppDispatch } from './app/hooks'
 import { getProducts } from './features/product/productSlice'
 import ScrollToTop from './utils/scrollToTop'
+import Checkout from './views/Checkout'
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch()
   dispatch(getProducts())
-
-  console.log(theme)
 
   return (
     <ThemeProvider theme={theme}>
@@ -26,6 +25,7 @@ const App = (): JSX.Element => {
             <ScrollToTop>
               <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/checkout' element={<Checkout />} />
                 <Route path='/products'>
                   <Route path=':category' element={<Category />} />
                   <Route

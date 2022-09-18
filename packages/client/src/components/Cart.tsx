@@ -1,26 +1,29 @@
 import theme from '../theme'
 import { useAppSelector, useAppDispatch } from '../app/hooks'
 import { Grid, Typography, Link, Box, Button as MuiButton } from '@mui/material'
-import { selectCart, clearCart } from '../features/cart/cartSlice'
+import {
+  selectCart,
+  clearCart,
+  ICartProduct,
+  getCartProducts,
+} from '../features/cart/cartSlice'
 import { selectProducts } from '../features/product/productSlice'
-import { IProduct } from '@audiophile/common/interfaces'
 import CartItemPreview from './CartItemPreview'
 import Button from './Button'
+import { Link as RouterLink } from 'react-router-dom'
+import { SetStateAction } from 'react'
 
-const Cart = (): JSX.Element => {
+interface ComponentProps {
+  setShowCart: React.Dispatch<SetStateAction<boolean>>
+}
+
+const Cart = ({ setShowCart }: ComponentProps): JSX.Element => {
   const select = useAppSelector
   const dispatch = useAppDispatch()
   const { cartItems } = select(selectCart)
   const { productList } = select(selectProducts)
 
-  interface ICartProduct extends IProduct {
-    quantity: number
-  }
-
-  const cartProducts: ICartProduct[] = cartItems.map((item) => ({
-    ...productList.find((product) => product._id === item._id),
-    ...(item as ICartProduct),
-  }))
+  const cartProducts = getCartProducts(cartItems, productList)
 
   const handleRemoveAll = () => {
     dispatch(clearCart())
@@ -76,7 +79,13 @@ const Cart = (): JSX.Element => {
             .toLocaleString()}
         </Typography>
       </Grid>
-      <Button variant='contained' fullWidth>
+      <Button
+        variant='contained'
+        component={RouterLink}
+        fullWidth
+        onClick={() => setShowCart(false)}
+        to={`/checkout`}
+      >
         Checkout
       </Button>
     </Box>
