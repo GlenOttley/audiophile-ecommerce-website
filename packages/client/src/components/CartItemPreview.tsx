@@ -10,9 +10,10 @@ import NumberField from './NumberField'
 
 interface ComponentProps {
   product: ICartProduct
+  variant: 'cart' | 'checkout'
 }
 
-const CartItemPreview = ({ product }: ComponentProps): JSX.Element => {
+const CartItemPreview = ({ product, variant }: ComponentProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   const [quantity, setQuantity] = useState<number>(product.quantity)
@@ -56,7 +57,15 @@ const CartItemPreview = ({ product }: ComponentProps): JSX.Element => {
       </Grid>
 
       <Grid item>
-        <NumberField variant='small' value={quantity} setValue={setQuantity} />
+        {variant === 'cart' ? (
+          <NumberField
+            variant='small'
+            value={quantity}
+            setValue={setQuantity}
+          />
+        ) : (
+          <Typography variant='body2'>x{product.quantity}</Typography>
+        )}
       </Grid>
     </Grid>
   )
