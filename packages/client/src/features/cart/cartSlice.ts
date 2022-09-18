@@ -56,6 +56,18 @@ export const getCartProducts = (
   }))
 }
 
+export const getCartTotal = (cartProducts: ICartProduct[]) => {
+  return cartProducts.reduce((acc, item) => acc + item.quantity * item.price, 0)
+}
+
+export const getCartVat = (cartProducts: ICartProduct[]) => {
+  return (getCartTotal(cartProducts) * 0.2).toFixed(2)
+}
+
+export const getCartGrandTotal = (cartProducts: ICartProduct[]) => {
+  return (getCartTotal(cartProducts) + 50).toFixed(2)
+}
+
 export const selectCart = (state: RootState) => state.cart
 export const { addCartItem, updateCartItemQuantity, clearCart } =
   cartSlice.actions

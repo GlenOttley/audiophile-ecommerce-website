@@ -25,9 +25,19 @@ const Checkout = () => {
           Go Back
         </Button>
 
-        <Grid container direction={{ xs: 'column', lg: 'row' }} gap={4}>
-          <CheckoutForm />
-          <CheckoutSummary />
+        <Grid
+          container
+          direction={{ xs: 'column', lg: 'row' }}
+          gap={4}
+          whiteSpace='nowrap'
+        >
+          <Grid item xs>
+            <CheckoutForm />
+          </Grid>
+
+          <Grid item lg={3.75}>
+            <CheckoutSummary />
+          </Grid>
         </Grid>
       </Container>
     </Box>

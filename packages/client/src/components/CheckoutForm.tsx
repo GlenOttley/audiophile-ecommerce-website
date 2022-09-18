@@ -17,9 +17,11 @@ import {
   FormProvider,
   SubmitHandler,
   useForm,
+  useFieldArray,
 } from 'react-hook-form'
 import Button from './Button'
 import FormControlLabel from './FormControlLabel'
+import { useEffect } from 'react'
 
 interface IFormInput {
   name: string
@@ -32,6 +34,10 @@ interface IFormInput {
   paymentMethod: 'e-money' | 'cash'
   eMoneyNumber?: number
   eMoneyPin?: number
+  // eMoneyDetails?: {
+  //   number: number
+  //   pin: number
+  // }[]
 }
 
 const CheckoutForm = () => {
@@ -47,7 +53,13 @@ const CheckoutForm = () => {
     watch,
     handleSubmit,
     formState: { errors },
+    resetField,
   } = methods
+
+  // const { fields, append, remove } = useFieldArray({
+  //   name: 'eMoneyDetails',
+  //   control,
+  // })
 
   const handleFormSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
     console.log(data)
@@ -73,9 +85,24 @@ const CheckoutForm = () => {
         value={method.value}
         label={method.label}
         control={<Radio />}
+        sx={{
+          border: '1px solid',
+          borderColor:
+            watch('paymentMethod') === method.value
+              ? `${theme.palette.primary.main} !important`
+              : 'auto',
+        }}
       />
     ))
   }
+
+  // reset previously entered eMoney details if payment method is changed to cash
+  useEffect(() => {
+    if (watch('paymentMethod') === 'cash') {
+      resetField('eMoneyNumber')
+      resetField('eMoneyPin')
+    }
+  }, [watch('paymentMethod')])
 
   return (
     <Box bgcolor='white' borderRadius={theme.shape.borderRadius}>
@@ -237,6 +264,41 @@ const CheckoutForm = () => {
                     />
                   </Grid>
                 </Grid>
+                {watch('paymentMethod') === 'e-money' && (
+                  <Grid container spacing={{ md: 2 }}>
+                    <Grid item xs={12} md={6}>
+                      <ControlledInput
+                        name='eMoneyNumber'
+                        label='e-Money Number'
+                        type='text'
+                        placeholder='238521993'
+                        rules={{
+                          pattern: {
+                            value: /^\d{9}$/i,
+                            message: 'Must be a 9 digit number',
+                          },
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <ControlledInput
+                        name='eMoneyPin'
+                        label='e-Money PIN'
+                        type='text'
+                        placeholder='6891'
+                        rules={{
+                          pattern: {
+                            value: /^\d{4}$/i,
+                            message: 'Must be a 4 digit number',
+                          },
+                        }}
+                      />
+                    </Grid>
+                  </Grid>
+                )}
+                <Button type='submit' variant='contained'>
+                  Submit
+                </Button>
               </Grid>
               {watch('paymentMethod') === 'cash' && (
                 <Grid
@@ -255,7 +317,7 @@ const CheckoutForm = () => {
                       />
                     </Icon>
                   </Grid>
-                  <Grid item xs>
+                  <Grid item xs whiteSpace='normal'>
                     <Typography variant='body1'>
                       The ‘Cash on Delivery’ option enables you to pay in cash
                       when our delivery courier arrives at your residence. Just

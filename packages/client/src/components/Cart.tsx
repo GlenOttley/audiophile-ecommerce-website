@@ -6,6 +6,7 @@ import {
   clearCart,
   ICartProduct,
   getCartProducts,
+  getCartTotal,
 } from '../features/cart/cartSlice'
 import { selectProducts } from '../features/product/productSlice'
 import CartItemPreview from './CartItemPreview'
@@ -60,7 +61,7 @@ const Cart = ({ setShowCart }: ComponentProps): JSX.Element => {
       </Grid>
       <Grid container direction='column' gap={3} marginBottom={4}>
         {cartProducts.map((product: ICartProduct) => (
-          <CartItemPreview product={product} key={product._id} />
+          <CartItemPreview product={product} key={product._id} variant='cart' />
         ))}
       </Grid>
       <Grid
@@ -73,10 +74,7 @@ const Cart = ({ setShowCart }: ComponentProps): JSX.Element => {
           Total
         </Typography>
         <Typography variant='h6' color='black'>
-          $
-          {cartProducts
-            .reduce((acc, item) => acc + item.quantity * item.price, 0)
-            .toLocaleString()}
+          ${getCartTotal(cartProducts).toLocaleString()}
         </Typography>
       </Grid>
       <Button
