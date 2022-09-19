@@ -1,18 +1,18 @@
-import theme from '../theme'
-import { useAppSelector, useAppDispatch } from '../app/hooks'
-import { Grid, Typography, Link, Box, Button as MuiButton } from '@mui/material'
+import { ICartProduct } from '@audiophile/common/interfaces'
+import { Box, Button as MuiButton, Grid, Link, Typography } from '@mui/material'
+import { SetStateAction } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../app/hooks'
 import {
-  selectCart,
   clearCart,
-  ICartProduct,
   getCartProducts,
   getCartTotal,
+  selectCart,
 } from '../features/cart/cartSlice'
 import { selectProducts } from '../features/product/productSlice'
-import CartItemPreview from './CartItemPreview'
+import theme from '../theme'
 import Button from './Button'
-import { Link as RouterLink } from 'react-router-dom'
-import { SetStateAction } from 'react'
+import CartItemPreview from './CartItemPreview'
 
 interface ComponentProps {
   setShowCart: React.Dispatch<SetStateAction<boolean>>

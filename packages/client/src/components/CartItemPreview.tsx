@@ -1,11 +1,9 @@
+import { ICartProduct } from '@audiophile/common/interfaces'
 import { Grid, Typography } from '@mui/material'
 import Image from 'mui-image'
 import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../app/hooks'
-import {
-  ICartProduct,
-  updateCartItemQuantity,
-} from '../features/cart/cartSlice'
+import { updateCartItemQuantity } from '../features/cart/cartSlice'
 import NumberField from './NumberField'
 
 interface ComponentProps {

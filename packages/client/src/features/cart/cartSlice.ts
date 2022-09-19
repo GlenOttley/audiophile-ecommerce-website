@@ -1,15 +1,10 @@
+import {
+  ICartProduct,
+  IProduct,
+  ICartItem,
+} from '@audiophile/common/interfaces'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IProduct } from '@audiophile/common/interfaces'
 import { RootState } from '../../app/store'
-
-export interface ICartItem {
-  _id: string
-  quantity: number
-}
-
-export interface ICartProduct extends IProduct {
-  quantity: number
-}
 
 export interface ICartState {
   cartItems: ICartItem[]

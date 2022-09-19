@@ -1,28 +1,21 @@
-import theme from '../theme'
+import { ICartProduct, IOrder } from '@audiophile/common/interfaces'
 import { Box, Grid, Typography } from '@mui/material'
-import Container from './Container'
-import Button from './Button'
-import CartItemPreview from './CartItemPreview'
+import { SubmitHandler, useFormContext } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from '../app/hooks'
 import {
-  selectCart,
-  ICartProduct,
+  getCartGrandTotal,
   getCartProducts,
   getCartTotal,
   getCartVat,
-  getCartGrandTotal,
+  selectCart,
 } from '../features/cart/cartSlice'
+import { createOrder } from '../features/order/orderSlice'
 import { selectProducts } from '../features/product/productSlice'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
-import {
-  UseFormHandleSubmit,
-  SubmitHandler,
-  useFormContext,
-} from 'react-hook-form'
+import theme from '../theme'
 import { IFormInput } from '../views/Checkout'
-
-interface ComponentProps {
-  handleSubmit: UseFormHandleSubmit<IFormInput>
-}
+import Button from './Button'
+import CartItemPreview from './CartItemPreview'
+import Container from './Container'
 
 const CheckoutSummary = () => {
   const select = useAppSelector
@@ -35,7 +28,13 @@ const CheckoutSummary = () => {
   const { handleSubmit } = useFormContext<IFormInput>()
 
   const handleFormSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
-    console.log(data)
+    const order: IOrder = {
+      ...data,
+      items: cartItems,
+      totalPrice: Number(getCartGrandTotal(cartProducts)),
+    }
+    console.log(order)
+    dispatch(createOrder(order))
   }
 
   return (

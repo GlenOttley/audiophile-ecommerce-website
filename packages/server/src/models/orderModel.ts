@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose'
 import { IOrder } from '@audiophile/common/interfaces'
 
 const orderSchema = new Schema(
@@ -8,13 +8,27 @@ const orderSchema = new Schema(
     //   required: true,
     //   ref: 'User',
     // },
+    user: {
+      name: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      phone: {
+        type: String,
+        required: true,
+      },
+    },
     items: [
       {
         quantity: {
           type: Number,
           required: true,
         },
-        product: {
+        _id: {
           type: Schema.Types.ObjectId,
           required: true,
           ref: 'Product',
@@ -62,4 +76,6 @@ const orderSchema = new Schema(
   }
 )
 
-export default model<IOrder>('Order', orderSchema)
+export interface ISavedOrderDocument extends IOrder, Omit<Document, '_id'> {}
+
+export default model<ISavedOrderDocument>('Order', orderSchema)

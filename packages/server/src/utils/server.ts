@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express'
 import path from 'path'
 import morgan from 'morgan'
 import productRoutes from '../routes/productRoutes'
+import orderRoutes from '../routes/orderRoutes'
 
 function createServer() {
   const serverRoot = path.resolve()
@@ -16,6 +17,7 @@ function createServer() {
 
   // routes
   app.use('/api/products', productRoutes)
+  app.use('/api/orders', orderRoutes)
 
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(serverRoot, 'packages/client/build')))

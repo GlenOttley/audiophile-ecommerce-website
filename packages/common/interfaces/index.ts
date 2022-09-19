@@ -16,14 +16,7 @@ export interface IGallery {
   third: IImage
 }
 
-interface IAddress {
-  address: string
-  zipCode: string
-  city: string
-  country: string
-}
-
-interface IProduct {
+export interface IProduct {
   _id: string
   slug: string
   name: string
@@ -40,18 +33,40 @@ interface IProduct {
   others: IProduct[]
 }
 
-interface IOrder {
-  items: {
-    quantity: number
-    product: IProduct
-  }
+export interface ICartItem {
+  _id: string
+  quantity: number
+}
+
+export interface ICartProduct extends IProduct {
+  quantity: number
+}
+
+export interface IUser {
+  name: string
+  email: string
+  phone: string
+}
+
+export interface IAddress {
+  address: string
+  zipCode: string
+  city: string
+  country: string
+}
+
+export interface IPaymentMethod {
+  method: 'e-money' | 'cash'
+  eMoneyNumber?: string
+  eMoneyPin?: string
+}
+
+export interface IOrder {
+  user: IUser
+  items: ICartItem[]
   shippingAddress: IAddress
-  paymentMethod: {
-    method: 'e-money' | 'cash'
-    eMoneyNumber?: string
-    eMoneyPin?: string
-  }
+  paymentMethod: IPaymentMethod
   totalPrice: number
 }
 
-export type { IProduct, IOrder }
+// export type { IProduct, IOrder }

@@ -6,8 +6,7 @@ import Nav from '../components/Nav'
 import Cart from '../components/Cart'
 import productTestData from '@audiophile/common/data/productTestData'
 import { initialState as productInitialState } from '../features/product/productSlice'
-import { ICartItem } from '../features/cart/cartSlice'
-import { IProduct } from '@audiophile/common/interfaces'
+import { IProduct, ICartItem } from '@audiophile/common/interfaces'
 
 const cartTestData: ICartItem[] = productTestData
   .slice(0, 1)

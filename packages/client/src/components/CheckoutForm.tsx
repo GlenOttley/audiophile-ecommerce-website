@@ -45,7 +45,7 @@ const CheckoutForm = () => {
         sx={{
           border: '1px solid',
           borderColor:
-            watch('paymentMethod') === method.value
+            watch('paymentMethod.method') === method.value
               ? `${theme.palette.primary.main} !important`
               : 'auto',
         }}
@@ -55,11 +55,11 @@ const CheckoutForm = () => {
 
   // reset previously entered eMoney details if payment method is changed to cash
   useEffect(() => {
-    if (watch('paymentMethod') === 'cash') {
-      resetField('eMoneyNumber')
-      resetField('eMoneyPin')
+    if (watch('paymentMethod.method') === 'cash') {
+      resetField('paymentMethod.eMoneyNumber')
+      resetField('paymentMethod.eMoneyPin')
     }
-  }, [watch('paymentMethod')])
+  }, [watch('paymentMethod.method')])
 
   return (
     <Box bgcolor='white' borderRadius={theme.shape.borderRadius}>
@@ -96,7 +96,7 @@ const CheckoutForm = () => {
               <Grid container spacing={{ md: 2 }}>
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='name'
+                    name='user.name'
                     label='Name'
                     type='text'
                     placeholder='Alexei Ward'
@@ -105,7 +105,7 @@ const CheckoutForm = () => {
 
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='email'
+                    name='user.email'
                     label='Email Address'
                     type='email'
                     placeholder='alexei@mail.com'
@@ -120,7 +120,7 @@ const CheckoutForm = () => {
 
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='phone'
+                    name='user.phone'
                     label='Phone Number'
                     type='tel'
                     placeholder='+1 (202) 555-0136'
@@ -141,7 +141,7 @@ const CheckoutForm = () => {
               <Grid container spacing={{ md: 2 }}>
                 <Grid item xs={12}>
                   <ControlledInput
-                    name='address'
+                    name='shippingAddress.address'
                     label='Address'
                     type='text'
                     placeholder='1137 Williams Avenue'
@@ -150,22 +150,16 @@ const CheckoutForm = () => {
 
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='zip'
+                    name='shippingAddress.zipCode'
                     label='ZIP Code'
                     type='text'
                     placeholder='10001'
-                    rules={{
-                      pattern: {
-                        value: /^[0-9]*$/i,
-                        message: 'Must be a number',
-                      },
-                    }}
                   />
                 </Grid>
 
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='city'
+                    name='shippingAddress.city'
                     label='City'
                     type='text'
                     placeholder='New York'
@@ -174,7 +168,7 @@ const CheckoutForm = () => {
 
                 <Grid item xs={12} md={6}>
                   <ControlledInput
-                    name='country'
+                    name='shippingAddress.country'
                     label='Country'
                     type='text'
                     placeholder='United States'
@@ -210,7 +204,7 @@ const CheckoutForm = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Controller
-                    name='paymentMethod'
+                    name='paymentMethod.method'
                     control={control}
                     render={({ field: { onChange, value } }) => (
                       <RadioGroup value={value} onChange={onChange}>
@@ -220,11 +214,11 @@ const CheckoutForm = () => {
                   />
                 </Grid>
               </Grid>
-              {watch('paymentMethod') === 'e-money' && (
+              {watch('paymentMethod.method') === 'e-money' && (
                 <Grid container spacing={{ md: 2 }}>
                   <Grid item xs={12} md={6}>
                     <ControlledInput
-                      name='eMoneyNumber'
+                      name='paymentMethod.eMoneyNumber'
                       label='e-Money Number'
                       type='text'
                       placeholder='238521993'
@@ -238,7 +232,7 @@ const CheckoutForm = () => {
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <ControlledInput
-                      name='eMoneyPin'
+                      name='paymentMethod.eMoneyPin'
                       label='e-Money PIN'
                       type='text'
                       placeholder='6891'
@@ -253,7 +247,7 @@ const CheckoutForm = () => {
                 </Grid>
               )}
             </Grid>
-            {watch('paymentMethod') === 'cash' && (
+            {watch('paymentMethod.method') === 'cash' && (
               <Grid
                 container
                 item
