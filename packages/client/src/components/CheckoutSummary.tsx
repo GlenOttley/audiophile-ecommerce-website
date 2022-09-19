@@ -13,6 +13,16 @@ import {
 } from '../features/cart/cartSlice'
 import { selectProducts } from '../features/product/productSlice'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
+import {
+  UseFormHandleSubmit,
+  SubmitHandler,
+  useFormContext,
+} from 'react-hook-form'
+import { IFormInput } from '../views/Checkout'
+
+interface ComponentProps {
+  handleSubmit: UseFormHandleSubmit<IFormInput>
+}
 
 const CheckoutSummary = () => {
   const select = useAppSelector
@@ -21,6 +31,13 @@ const CheckoutSummary = () => {
   const { productList } = select(selectProducts)
 
   const cartProducts = getCartProducts(cartItems, productList)
+
+  const { handleSubmit } = useFormContext<IFormInput>()
+
+  const handleFormSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
+    console.log(data)
+  }
+
   return (
     <Box bgcolor='white' borderRadius={theme.shape.borderRadius}>
       <Container
@@ -82,7 +99,11 @@ const CheckoutSummary = () => {
           </Typography>
         </Grid>
 
-        <Button variant='contained' fullWidth>
+        <Button
+          variant='contained'
+          fullWidth
+          onClick={handleSubmit((data) => handleFormSubmit(data))}
+        >
           Continue & Pay
         </Button>
       </Container>

@@ -16,6 +16,13 @@ export interface IGallery {
   third: IImage
 }
 
+interface IAddress {
+  address: string
+  zipCode: string
+  city: string
+  country: string
+}
+
 interface IProduct {
   _id: string
   slug: string
@@ -33,4 +40,18 @@ interface IProduct {
   others: IProduct[]
 }
 
-export type { IProduct }
+interface IOrder {
+  items: {
+    quantity: number
+    product: IProduct
+  }
+  shippingAddress: IAddress
+  paymentMethod: {
+    method: 'e-money' | 'cash'
+    eMoneyNumber?: string
+    eMoneyPin?: string
+  }
+  totalPrice: number
+}
+
+export type { IProduct, IOrder }
