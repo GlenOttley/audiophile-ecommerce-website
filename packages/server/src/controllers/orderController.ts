@@ -1,22 +1,31 @@
 import { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
 import Product, { ISavedProductDocument } from '../models/productModel'
+import Order from '../models/orderModel'
 
-// @desc    Fetch all products
-// @route   GET /api/products
-// @access  Public
-const getProducts = asyncHandler(
-  async (req: Request, res: Response): Promise<void> => {
-    try {
-      const products: ISavedProductDocument[] = await Product.find({}).populate(
-        'others'
-      )
-      res.status(200).json(products)
-    } catch (error) {
-      res.status(404).json(error)
-    }
+// @desc    Create new order
+// @route   POST /api/orders
+// @access  Private
+const createOrder = asyncHandler(async (req: Request, res: Response) => {
+  const { items, shippingAddress, paymentMethod, totalPrice } = req.body
+
+  if (items && items.length === 0) {
+    res.status(400)
+    throw new Error('No order items')
+    return
+  } else {
+    const order = new Order({
+      items,
+      shippingAddress,
+      paymentMethod,
+      totalPrice,
+    })
+
+    const createdOrder = await order.save()
+
+    res.status(201).json(createdOrder)
   }
-)
+})
 
 // @desc    Get single product by ID
 // @route   GET /api/products/:id
@@ -53,4 +62,4 @@ const assignOthers = asyncHandler(
   }
 )
 
-export { getProducts, getProduct }
+export { createOrder }

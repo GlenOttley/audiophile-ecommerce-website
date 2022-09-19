@@ -5,9 +5,31 @@ import { useNavigate } from 'react-router-dom'
 import CheckoutForm from '../components/CheckoutForm'
 import CheckoutSummary from '../components/CheckoutSummary'
 import { Grid, Box } from '@mui/material'
+import { useForm, FormProvider } from 'react-hook-form'
+import { IOrder } from '@audiophile/common/interfaces'
+
+export interface IFormInput {
+  name: string
+  email: string
+  phone: string
+  address: string
+  zip: number
+  city: string
+  country: string
+  paymentMethod: 'e-money' | 'cash'
+  eMoneyNumber?: number
+  eMoneyPin?: number
+}
 
 const Checkout = () => {
   const navigate = useNavigate()
+  const methods = useForm<IFormInput>({
+    mode: 'onSubmit',
+    defaultValues: {
+      paymentMethod: 'e-money',
+    },
+  })
+
   return (
     <Box bgcolor='grey.50'>
       <Container
@@ -31,13 +53,15 @@ const Checkout = () => {
           gap={4}
           whiteSpace='nowrap'
         >
-          <Grid item xs>
-            <CheckoutForm />
-          </Grid>
+          <FormProvider {...methods}>
+            <Grid item xs>
+              <CheckoutForm />
+            </Grid>
 
-          <Grid item lg={3.75}>
-            <CheckoutSummary />
-          </Grid>
+            <Grid item lg={3.75}>
+              <CheckoutSummary />
+            </Grid>
+          </FormProvider>
         </Grid>
       </Container>
     </Box>
