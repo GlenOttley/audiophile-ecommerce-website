@@ -1,7 +1,7 @@
 import { IProduct } from '@audiophile/common/interfaces'
 import { KeyboardArrowLeft } from '@mui/icons-material'
 import { Box, Grid, Skeleton, Typography } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../app/hooks'
 import { addCartItem } from '../features/cart/cartSlice'
@@ -19,6 +19,10 @@ const DetailOverview = ({ product }: ComponentProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   const [quantity, setQuantity] = useState<number>(1)
+
+  useEffect(() => {
+    setQuantity(1)
+  }, [product])
 
   const handleAddToCart = () => {
     if (product) {

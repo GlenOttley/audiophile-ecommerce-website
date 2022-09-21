@@ -30,7 +30,7 @@ const Nav = (): JSX.Element => {
 
   return (
     <AppBar
-      position='fixed'
+      // position='fixed'
       sx={{
         backgroundColor: theme.palette.grey[900],
         zIndex: theme.zIndex.modal + 1,

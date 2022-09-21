@@ -1,9 +1,4 @@
-import {
-  styled,
-  Button as MuiButton,
-  ButtonProps,
-  ButtonBaseProps,
-} from '@mui/material'
+import { Button as MuiButton, ButtonProps, styled } from '@mui/material'
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {

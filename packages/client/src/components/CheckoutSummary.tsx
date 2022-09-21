@@ -145,7 +145,7 @@ const CheckoutSummary = () => {
             maxWidth: '540px',
             width: { xs: 'calc(100% - 48px)' },
             position: { xs: 'fixed', xl: 'relative' },
-            transform: 'translateY(82px)',
+            transform: 'translateY(50px)',
             // right: { md: 0, xl: 'auto' },
             // margin: { xl: '114px 0 auto auto' },
             boxShadow: 'none',
