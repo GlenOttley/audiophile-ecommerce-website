@@ -15,13 +15,7 @@ const createOrder = asyncHandler(async (req: Request, res: Response) => {
     throw new Error('No order items')
     return
   } else {
-    const order: ISavedOrderDocument = new Order({
-      items,
-      user,
-      shippingAddress,
-      paymentMethod,
-      totalPrice,
-    })
+    const order: ISavedOrderDocument = new Order(req.body)
 
     const createdOrder = await order.save()
 

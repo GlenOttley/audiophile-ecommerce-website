@@ -11,7 +11,11 @@ export interface ICartState {
 }
 
 export const initialState: ICartState = {
-  cartItems: [],
+  cartItems: [
+    // { _id: '632899547ebf58c060b3785e', quantity: 1 },
+    // { _id: '632899547ebf58c060b3785c', quantity: 2 },
+    // { _id: '632899547ebf58c060b3785b', quantity: 1 },
+  ],
 }
 
 export const cartSlice = createSlice({

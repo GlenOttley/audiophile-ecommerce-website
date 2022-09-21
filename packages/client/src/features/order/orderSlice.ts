@@ -4,12 +4,19 @@ import { IOrder } from '@audiophile/common/interfaces'
 import axios, { AxiosError } from 'axios'
 
 interface IOrderState {
-  order?: IOrder
+  order: IOrder
   status: 'idle' | 'loading' | 'failed'
   error: string | null
 }
 
 export const initialState: IOrderState = {
+  order: {
+    // items: [
+    //   { _id: '632899547ebf58c060b3785e', quantity: 1 },
+    //   { _id: '632899547ebf58c060b3785c', quantity: 2 },
+    //   { _id: '632899547ebf58c060b3785b', quantity: 1 },
+    // ],
+  } as IOrder,
   status: 'idle',
   error: null,
 }
@@ -38,7 +45,9 @@ export const createOrder = createAsyncThunk(
 export const orderSlice = createSlice({
   name: 'order',
   initialState,
-  reducers: {},
+  reducers: {
+    clearOrder: () => initialState,
+  },
   extraReducers: (builder) => {
     builder
       // CREATE INVOICE
@@ -59,5 +68,8 @@ export const orderSlice = createSlice({
       })
   },
 })
+
+export const selectOrder = (state: RootState) => state.order
+export const { clearOrder } = orderSlice.actions
 
 export default orderSlice.reducer

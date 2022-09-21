@@ -8,11 +8,7 @@ import { Grid, Box } from '@mui/material'
 import { useForm, FormProvider } from 'react-hook-form'
 import { IOrder } from '@audiophile/common/interfaces'
 
-export interface IFormInput extends Omit<IOrder, 'totalPrice' | 'items'> {
-  // user: IUser
-  // shippingAddress: IAddress
-  // paymentMethod: IPaymentMethod
-}
+export interface IFormInput extends Omit<IOrder, 'totalPrice' | 'items'> {}
 
 const Checkout = () => {
   const navigate = useNavigate()
@@ -20,7 +16,7 @@ const Checkout = () => {
     mode: 'onSubmit',
     defaultValues: {
       paymentMethod: {
-        method: 'cash',
+        method: 'e-money',
       },
     },
   })
@@ -30,7 +26,7 @@ const Checkout = () => {
       <Container
         sx={{
           paddingTop: { xs: 2, lg: 10 },
-          marginBottom: { xs: 11, md: 15, lg: 20 },
+          paddingBottom: { xs: 11, md: 15, lg: 20 },
         }}
       >
         <Button
