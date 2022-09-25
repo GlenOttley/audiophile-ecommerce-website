@@ -18,8 +18,8 @@ const CheckoutForm = () => {
   const {
     control,
     watch,
-    formState: { errors },
     resetField,
+    formState: { errors },
   } = useFormContext()
 
   const paymentMethods = [
@@ -60,6 +60,28 @@ const CheckoutForm = () => {
       resetField('paymentMethod.eMoneyPin')
     }
   }, [watch('paymentMethod.method')])
+
+  // scroll form field into view if there are errors
+  useEffect(() => {
+    let errorFields: string[] = []
+
+    Object.entries(errors).forEach((x) => {
+      Object.entries(x)[1].forEach((y) => {
+        Object.keys(y as Object).forEach((z) => {
+          if (z !== '0') {
+            errorFields.push(x[0].concat('.', z))
+          }
+        })
+      })
+    })
+
+    let formFields = errorFields
+      .map((error) => document.getElementsByName(error)[0])
+      .filter((el) => !!el)
+
+    formFields.sort((a, b) => b.scrollHeight - a.scrollHeight)
+    formFields[0]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  })
 
   return (
     <Box bgcolor='white' borderRadius={theme.shape.borderRadius}>

@@ -62,6 +62,9 @@ const ControlledInput = ({
             type={type || 'text'}
             autoComplete='off'
             error={!!_.get(errors, name)}
+            inputProps={{
+              'aria-label': label,
+            }}
           />
         </FormControl>
       )}

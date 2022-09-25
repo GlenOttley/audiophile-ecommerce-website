@@ -76,11 +76,27 @@ const Nav = (): JSX.Element => {
           </Grid>
 
           <Grid item>
-            <IconButton size='large' color='inherit' aria-label='home'>
-              <Icon sx={{ width: 'auto' }}>
-                <img src='/assets/shared/desktop/logo.svg' alt='audiophile' />
-              </Icon>
-            </IconButton>
+            <Link component={RouterLink} to='/'>
+              <IconButton
+                size='large'
+                color='inherit'
+                aria-label='home'
+                disableRipple
+                sx={{
+                  '&:hover img': {
+                    filter: 'none',
+                  },
+                }}
+              >
+                <Icon
+                  sx={{
+                    width: 'auto',
+                  }}
+                >
+                  <img src='/assets/shared/desktop/logo.svg' alt='audiophile' />
+                </Icon>
+              </IconButton>
+            </Link>
           </Grid>
 
           <Grid

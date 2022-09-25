@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import productData from '@audiophile/common/data/productData'
 import Product from '../models/productModel'
+import Order from '../models/orderModel'
 import connectDB from './db'
 import path from 'path'
 
@@ -14,6 +15,7 @@ connectDB()
 const importData = async () => {
   try {
     await Product.deleteMany()
+    await Order.deleteMany()
 
     await Product.insertMany(productData)
 

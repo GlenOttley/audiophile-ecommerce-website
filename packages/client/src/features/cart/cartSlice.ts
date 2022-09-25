@@ -42,6 +42,11 @@ export const cartSlice = createSlice({
         item.quantity = action.payload.quantity
       }
     },
+    removeCartItem: (state, action: PayloadAction<string>) => {
+      state.cartItems = state.cartItems.filter(
+        (item) => item._id !== action.payload
+      )
+    },
   },
 })
 
@@ -68,6 +73,10 @@ export const getCartGrandTotal = (cartProducts: ICartProduct[]) => {
 }
 
 export const selectCart = (state: RootState) => state.cart
-export const { addCartItem, updateCartItemQuantity, clearCart } =
-  cartSlice.actions
+export const {
+  addCartItem,
+  updateCartItemQuantity,
+  removeCartItem,
+  clearCart,
+} = cartSlice.actions
 export default cartSlice.reducer

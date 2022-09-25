@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import { createProduct } from '../services/productService'
 import { IProduct } from '@audiophile/common/interfaces'
-import { testProduct } from '@audiophile/common/data/testData'
+import productTestData from '@audiophile/common/data/testData/productTestData'
 
 const app = createServer()
 
@@ -30,7 +30,7 @@ describe('product', () => {
 
     describe('given the product does exist', () => {
       it('should return a 200 status and the product', async () => {
-        const product = await createProduct(testProduct as IProduct)
+        const product = await createProduct(productTestData[0] as IProduct)
 
         const productId = product._id
 

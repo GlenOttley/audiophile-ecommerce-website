@@ -11,6 +11,7 @@ img {
 a {
   text-decoration: none;
   color: inherit;
+  line-height: 0;
 }
 
 /* Chrome, Safari, Edge, Opera */

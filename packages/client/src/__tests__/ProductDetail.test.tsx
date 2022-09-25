@@ -6,7 +6,7 @@ import ProductDetail from '../views/ProductDetail'
 import Nav from '../components/Nav'
 import { Routes, Route } from 'react-router-dom'
 import { initialState as productInitialState } from '../features/product/productSlice'
-import productTestData from '@audiophile/common/data/productTestData'
+import productTestData from '@audiophile/common/data/testData/productTestData'
 import { IProduct } from '@audiophile/common/interfaces'
 
 describe('Product Detail Screen', () => {

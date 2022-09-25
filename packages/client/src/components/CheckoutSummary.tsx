@@ -1,4 +1,4 @@
-import { ICartProduct, IOrder } from '@audiophile/common/interfaces'
+import { ICartProduct } from '@audiophile/common/interfaces'
 import { Box, Grid, Typography, Dialog, useMediaQuery } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { SubmitHandler, useFormContext } from 'react-hook-form'
@@ -11,11 +11,7 @@ import {
   selectCart,
   clearCart,
 } from '../features/cart/cartSlice'
-import {
-  createOrder,
-  selectOrder,
-  clearOrder,
-} from '../features/order/orderSlice'
+import { selectOrder, clearOrder } from '../features/order/orderSlice'
 import { selectProducts } from '../features/product/productSlice'
 import theme from '../theme'
 import { IFormInput } from '../views/Checkout'
@@ -25,7 +21,11 @@ import Container from './Container'
 import CheckoutModal from './CheckoutModal'
 import { useNavigate } from 'react-router-dom'
 
-const CheckoutSummary = () => {
+interface ComponentProps {
+  handleFormSubmit: SubmitHandler<IFormInput>
+}
+
+const CheckoutSummary = ({ handleFormSubmit }: ComponentProps) => {
   const select = useAppSelector
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -39,15 +39,6 @@ const CheckoutSummary = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const { handleSubmit } = useFormContext<IFormInput>()
-
-  const handleFormSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
-    const order: IOrder = {
-      ...data,
-      items: cartItems,
-      totalPrice: Number(getCartGrandTotal(cartProducts)),
-    }
-    dispatch(createOrder(order))
-  }
 
   const handleModalClose = () => {
     dispatch(clearOrder())
@@ -90,35 +81,80 @@ const CheckoutSummary = () => {
 
         <Grid container direction='column' gap={1} marginBottom={3}>
           <Grid container justifyContent='space-between'>
-            <Typography variant='body1' textTransform='uppercase'>
+            <Typography
+              variant='body1'
+              textTransform='uppercase'
+              component='label'
+              data-for='total'
+            >
               Total
             </Typography>
-            <Typography variant='h6' textTransform='uppercase' color='black'>
+            <Typography
+              variant='h6'
+              textTransform='uppercase'
+              color='black'
+              component='output'
+              id='total'
+            >
               ${getCartTotal(cartProducts).toLocaleString()}
             </Typography>
           </Grid>
           <Grid container justifyContent='space-between'>
-            <Typography variant='body1' textTransform='uppercase'>
+            <Typography
+              variant='body1'
+              textTransform='uppercase'
+              component='label'
+              data-for='shipping'
+            >
               Shipping
             </Typography>
-            <Typography variant='h6' textTransform='uppercase' color='black'>
+            <Typography
+              variant='h6'
+              textTransform='uppercase'
+              color='black'
+              id='shipping'
+              component='output'
+            >
               $50
             </Typography>
           </Grid>
           <Grid container justifyContent='space-between'>
-            <Typography variant='body1' textTransform='uppercase'>
+            <Typography
+              variant='body1'
+              textTransform='uppercase'
+              component='label'
+              data-for='vat'
+            >
               VAT (included)
             </Typography>
-            <Typography variant='h6' textTransform='uppercase' color='black'>
+            <Typography
+              variant='h6'
+              textTransform='uppercase'
+              color='black'
+              id='vat'
+              component='output'
+            >
               ${getCartVat(cartProducts).toLocaleString()}
             </Typography>
           </Grid>
         </Grid>
         <Grid container justifyContent='space-between' marginBottom={4}>
-          <Typography variant='body1' textTransform='uppercase'>
+          <Typography
+            variant='body1'
+            textTransform='uppercase'
+            component='label'
+            data-for='grand-total'
+          >
             Grand total
           </Typography>
-          <Typography variant='h6' textTransform='uppercase' color='black'>
+          <Typography
+            variant='h6'
+            textTransform='uppercase'
+            color='black'
+            component='output'
+            id='grand-total'
+            data-for='total shipping'
+          >
             ${getCartGrandTotal(cartProducts).toLocaleString()}
           </Typography>
         </Grid>

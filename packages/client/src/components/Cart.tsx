@@ -60,9 +60,16 @@ const Cart = ({ setShowCart }: ComponentProps): JSX.Element => {
         </Link>
       </Grid>
       <Grid container direction='column' gap={3} marginBottom={4}>
-        {cartProducts.map((product: ICartProduct) => (
-          <CartItemPreview product={product} key={product._id} variant='cart' />
-        ))}
+        {cartProducts.map(
+          (product: ICartProduct) =>
+            product.quantity !== 0 && (
+              <CartItemPreview
+                product={product}
+                key={product._id}
+                variant='cart'
+              />
+            )
+        )}
       </Grid>
       <Grid
         container

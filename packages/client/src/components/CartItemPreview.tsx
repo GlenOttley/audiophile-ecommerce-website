@@ -1,9 +1,13 @@
 import { ICartProduct } from '@audiophile/common/interfaces'
-import { Grid, Typography } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import { Grid, IconButton, Typography } from '@mui/material'
 import Image from 'mui-image'
 import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../app/hooks'
-import { updateCartItemQuantity } from '../features/cart/cartSlice'
+import {
+  updateCartItemQuantity,
+  removeCartItem,
+} from '../features/cart/cartSlice'
 import NumberField from './NumberField'
 
 interface ComponentProps {
@@ -15,6 +19,10 @@ const CartItemPreview = ({ product, variant }: ComponentProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   const [quantity, setQuantity] = useState<number>(product.quantity)
+
+  const handleRemoveItem = () => {
+    dispatch(removeCartItem(product._id))
+  }
 
   useEffect(() => {
     dispatch(
@@ -65,6 +73,13 @@ const CartItemPreview = ({ product, variant }: ComponentProps): JSX.Element => {
           <Typography variant='body2'>x{product.quantity}</Typography>
         )}
       </Grid>
+      {variant === 'cart' && (
+        <Grid item>
+          <IconButton onClick={handleRemoveItem}>
+            <CloseIcon fontSize='small' />
+          </IconButton>
+        </Grid>
+      )}
     </Grid>
   )
 }

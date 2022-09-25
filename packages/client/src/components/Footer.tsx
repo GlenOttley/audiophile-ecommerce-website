@@ -47,9 +47,11 @@ const Footer = (): JSX.Element => {
             justifyContent={{ xs: 'center', md: 'start' }}
             marginBottom={{ xs: 6, md: 4, lg: 4.5 }}
           >
-            <Icon sx={{ width: 'auto' }}>
-              <img src='/assets/shared/desktop/logo.svg' alt='audiophile' />
-            </Icon>
+            <Link component={RouterLink} to='/'>
+              <Icon sx={{ width: 'auto' }}>
+                <img src='/assets/shared/desktop/logo.svg' alt='audiophile' />
+              </Icon>
+            </Link>
           </Grid>
 
           <Grid
@@ -59,7 +61,7 @@ const Footer = (): JSX.Element => {
             alignItems={{ xs: 'center' }}
             justifyContent={{ lg: 'end' }}
             direction={{ xs: 'column', md: 'row' }}
-            gap={{ xs: 2, md: 4 }}
+            gap={4}
             marginBottom={{ xs: 6, md: 4, lg: 4.5 }}
           >
             <Link component={RouterLink} to='/'>

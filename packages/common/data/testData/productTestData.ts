@@ -1,4 +1,4 @@
-import { IProduct } from '../interfaces'
+import { IProduct } from '../../interfaces'
 
 interface IProductData extends Omit<IProduct, 'others'> {
   others?: IProductData[]

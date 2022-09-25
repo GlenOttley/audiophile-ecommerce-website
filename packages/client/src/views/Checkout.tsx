@@ -5,13 +5,29 @@ import { useNavigate } from 'react-router-dom'
 import CheckoutForm from '../components/CheckoutForm'
 import CheckoutSummary from '../components/CheckoutSummary'
 import { Grid, Box } from '@mui/material'
-import { useForm, FormProvider } from 'react-hook-form'
+import { useForm, FormProvider, SubmitHandler } from 'react-hook-form'
 import { IOrder } from '@audiophile/common/interfaces'
+import { useAppDispatch, useAppSelector } from '../app/hooks'
+import {
+  getCartGrandTotal,
+  getCartProducts,
+  selectCart,
+} from '../features/cart/cartSlice'
+import { selectProducts } from '../features/product/productSlice'
+import { createOrder } from '../features/order/orderSlice'
+import { useEffect } from 'react'
 
 export interface IFormInput extends Omit<IOrder, 'totalPrice' | 'items'> {}
 
 const Checkout = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const select = useAppSelector
+
+  const { cartItems } = select(selectCart)
+  const { productList } = select(selectProducts)
+  const cartProducts = getCartProducts(cartItems, productList)
+
   const methods = useForm<IFormInput>({
     mode: 'onSubmit',
     defaultValues: {
@@ -20,6 +36,19 @@ const Checkout = () => {
       },
     },
   })
+
+  const handleFormSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
+    const order: IOrder = {
+      ...data,
+      items: cartItems,
+      totalPrice: Number(getCartGrandTotal(cartProducts)),
+    }
+    dispatch(createOrder(order))
+  }
+
+  useEffect(() => {
+    !cartItems.length && navigate('/')
+  }, [cartItems])
 
   return (
     <Box bgcolor='grey.50'>
@@ -50,7 +79,7 @@ const Checkout = () => {
             </Grid>
 
             <Grid item lg={3.75}>
-              <CheckoutSummary />
+              <CheckoutSummary handleFormSubmit={handleFormSubmit} />
             </Grid>
           </FormProvider>
         </Grid>

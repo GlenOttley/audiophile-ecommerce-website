@@ -6,14 +6,11 @@ import Order, { ISavedOrderDocument } from '../models/orderModel'
 // @route   POST /api/orders
 // @access  Private
 const createOrder = asyncHandler(async (req: Request, res: Response) => {
-  // console.log(req.body)
-
-  const { items, user, shippingAddress, paymentMethod, totalPrice } = req.body
+  const { items } = req.body
 
   if (items && items.length === 0) {
     res.status(400)
     throw new Error('No order items')
-    return
   } else {
     const order: ISavedOrderDocument = new Order(req.body)
 

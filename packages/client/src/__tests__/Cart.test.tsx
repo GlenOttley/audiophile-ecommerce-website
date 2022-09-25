@@ -1,12 +1,11 @@
-import { renderWithProviders } from '../utils/test-utils'
-import { screen, waitFor } from '@testing-library/react'
+import productTestData from '@audiophile/common/data/testData/productTestData'
+import { ICartItem, IProduct } from '@audiophile/common/interfaces'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { server } from '../mocks/server'
 import Nav from '../components/Nav'
-import Cart from '../components/Cart'
-import productTestData from '@audiophile/common/data/productTestData'
 import { initialState as productInitialState } from '../features/product/productSlice'
-import { IProduct, ICartItem } from '@audiophile/common/interfaces'
+import { server } from '../mocks/server'
+import { renderWithProviders } from '../utils/test-utils'
 
 const cartTestData: ICartItem[] = productTestData
   .slice(0, 1)

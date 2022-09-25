@@ -5,7 +5,11 @@ import productCategoryData from '../data/productCategoryData'
 
 const ProductCategories = () => {
   return (
-    <Box marginTop='90px' marginBottom={{ xs: 15, md: 12, lg: 20 }}>
+    <Box
+      paddingTop='50px'
+      marginBottom={{ xs: 15, md: 12, lg: 21 }}
+      marginTop={{ xs: 5, md: 12, lg: 15 }}
+    >
       <Container>
         <Grid
           container

@@ -68,5 +68,3 @@ export interface IOrder {
   paymentMethod: IPaymentMethod
   totalPrice: number
 }
-
-// export type { IProduct, IOrder }
