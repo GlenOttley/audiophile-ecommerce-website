@@ -169,6 +169,4 @@ describe('Checkout', () => {
 
     expect(totalValue + shippingValue).toEqual(grandTotalValue)
   })
-
-  // test('order confirmation modal shows correctly', () => {})
 })

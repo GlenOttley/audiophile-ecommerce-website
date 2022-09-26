@@ -1,15 +1,15 @@
-import theme from './theme'
-import { CssBaseline, ThemeProvider, Box } from '@mui/material'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Nav from './components/Nav'
-import Footer from './components/Footer'
-import Home from './views/Home'
-import Category from './views/Category'
-import ProductDetail from './views/ProductDetail'
+import { Box, CssBaseline, ThemeProvider } from '@mui/material'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useAppDispatch } from './app/hooks'
+import Footer from './components/Footer'
+import Nav from './components/Nav'
 import { getProducts } from './features/product/productSlice'
+import theme from './theme'
 import ScrollToTop from './utils/scrollToTop'
+import Category from './views/Category'
 import Checkout from './views/Checkout'
+import Home from './views/Home'
+import ProductDetail from './views/ProductDetail'
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -20,7 +20,6 @@ const App = (): JSX.Element => {
       <CssBaseline>
         <Router>
           <Nav />
-
           <Box marginTop='91px'>
             <ScrollToTop>
               <Routes>
@@ -36,7 +35,6 @@ const App = (): JSX.Element => {
               </Routes>
             </ScrollToTop>
           </Box>
-
           <Footer />
         </Router>
       </CssBaseline>
