@@ -2,23 +2,23 @@ import supertest from 'supertest'
 import createServer from '../utils/server'
 import mongoose from 'mongoose'
 import { MongoMemoryServer } from 'mongodb-memory-server'
-import { createProduct } from '../services/productService'
+import { createProduct } from '../testServices/productService'
 import { IProduct } from '@audiophile/common/interfaces'
 import productTestData from '@audiophile/common/data/testData/productTestData'
 
 const app = createServer()
 
 describe('product', () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create()
+  // beforeAll(async () => {
+  //   const mongoServer = await MongoMemoryServer.create()
 
-    await mongoose.connect(mongoServer.getUri())
-  })
+  //   await mongoose.connect(mongoServer.getUri())
+  // })
 
-  afterAll(async () => {
-    await mongoose.disconnect()
-    await mongoose.connection.close()
-  })
+  // afterAll(async () => {
+  //   await mongoose.disconnect()
+  //   await mongoose.connection.close()
+  // })
 
   describe('get product route', () => {
     describe('given the product does not exist', () => {

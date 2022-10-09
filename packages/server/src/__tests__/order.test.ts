@@ -7,16 +7,16 @@ import testOrder from '@audiophile/common/data/testData/orderTestData'
 const app = createServer()
 
 describe('order', () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create()
+  // beforeAll(async () => {
+  //   const mongoServer = await MongoMemoryServer.create()
 
-    await mongoose.connect(mongoServer.getUri())
-  })
+  //   await mongoose.connect(mongoServer.getUri())
+  // })
 
-  afterAll(async () => {
-    await mongoose.disconnect()
-    await mongoose.connection.close()
-  })
+  // afterAll(async () => {
+  //   await mongoose.disconnect()
+  //   await mongoose.connection.close()
+  // })
 
   describe('create order route', () => {
     describe('given the order data does not contain any items', () => {
