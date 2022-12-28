@@ -9,8 +9,7 @@ const createOrder = asyncHandler(async (req: Request, res: Response) => {
   const { items } = req.body
 
   if (items && items.length === 0) {
-    res.status(400)
-    throw new Error('No order items')
+    res.status(400).json({ message: 'No order items' })
   } else {
     const order: ISavedOrderDocument = new Order(req.body)
 

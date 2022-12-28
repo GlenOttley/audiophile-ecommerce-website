@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/app.ts",
-    "test": "jest",
-    "test:debug": "jest --watchAll",
+    "test": "jest --runInBand",
+    "test:debug": "jest --runInBand --watchAll",
     "data:import": "ts-node src/utils/seeder.ts",
     "data:destroy": "ts-node src/utils/seeder.ts -d",
     "data:find": "ts-node src/utils/seeder.ts -f"

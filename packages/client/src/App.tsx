@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Router>
+        <Router basename='/'>
           <Nav />
           <Box marginTop='91px'>
             <ScrollToTop>
