@@ -3,6 +3,7 @@ node_modules
 .env
 .vscode
 Procfile
+vercel.json
 
 
 # CREATE REACT APP
@@ -16,6 +17,7 @@ coverage
 
 # production
 build
+dist
 
 # misc
 .DS_Store
