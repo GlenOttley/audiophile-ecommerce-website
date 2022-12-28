@@ -1,4 +1,4 @@
-import supertest from 'supertest'
+const supertest = require('supertest')
 import createServer from '../utils/server'
 import testOrder from '@audiophile/common/data/testData/orderTestData'
 
