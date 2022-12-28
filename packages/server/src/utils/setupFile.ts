@@ -1,4 +1,4 @@
-import { MongoMemoryServer } from 'mongodb-memory-server'
+const MongoMemoryServer = require('mongodb-memory-server')
 import mongoose from 'mongoose'
 import Product from '../models/productModel'
 import Order from '../models/orderModel'
