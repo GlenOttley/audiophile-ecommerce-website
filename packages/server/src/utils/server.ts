@@ -1,6 +1,6 @@
-const morgan = require('morgan')
 import express, { Application, Request, Response } from 'express'
 import path from 'path'
+import morgan from 'morgan'
 import productRoutes from '../routes/productRoutes'
 import orderRoutes from '../routes/orderRoutes'
 

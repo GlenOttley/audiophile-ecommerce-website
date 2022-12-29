@@ -1,4 +1,4 @@
-const supertest = require('supertest')
+import supertest from 'supertest'
 import createServer from '../utils/server'
 import { createProduct } from '../services/productService'
 import { IProduct } from '@audiophile/common/interfaces'
